@@ -3,7 +3,7 @@
 
 
 @section('content')
-<h1>Edit Users</h1>
+<h1 class="font-weight-bold">Edit Users</h1>
 
 {!! Form::model($user,["method"=>"patch","action"=>["UserController@update",$user->id]]) !!}
 <div class="form-group">

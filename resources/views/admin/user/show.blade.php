@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="my-4">View Users</h1>
+<h1 class="my-4 font-weight-bold">View Users</h1>
 
 {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

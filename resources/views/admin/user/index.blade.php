@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1 class="my-4">View Users</h1>
+<h1 class="my-4 font-weight-bold" >View Users</h1>
 <div class="card-body m-4 " id="userPanel">
   <div class="table-stats order-table ov-h">
     <table class="table ">

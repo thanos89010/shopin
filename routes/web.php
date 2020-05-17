@@ -25,6 +25,9 @@ Route::get("/user/{id}/delete","UserController@destroy")->name("user.destroy");
 
 Route::get("/roles","RoleController@create")->name("roles.create");
 Route::post("/roles","RoleController@store")->name("roles.store");
+Route::get("/roles/{id}/edit","RoleController@edit")->name("roles.edit");
+Route::PATCH("/roles/{id}/update","RoleController@update")->name("roles.update");
+Route::get("/roles/{id}","RoleController@destroy")->name("roles.destroy");
 
 
 

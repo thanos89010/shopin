@@ -3,7 +3,7 @@
 
 
 @section('content')
-<h1>Create Users</h1>
+<h1 class="font-weight-bold">Create Users</h1>
 
 {!! Form::open(["metho"=>"post","action"=>"UserController@store","files"=>true]) !!}
 <div class="form-group">

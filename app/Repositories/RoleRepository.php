@@ -34,4 +34,24 @@ class RoleRepository
 
 
   } 
+
+  public function findById($roleId)
+  {
+    return Role::whereId($roleId)
+    ->firstOrFail();
+  }
+
+  public function update($roleId)
+  {
+     Role::whereId($roleId)->firstOrFail()->update(request()->all());
+
+  }
+
+  public function delete($roleId)
+  {
+
+   Role::whereId($roleId)->delete();
+
+    
+  }
 }
