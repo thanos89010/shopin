@@ -16,3 +16,9 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/map.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .sass("resources/sass/style.scss", "public/css");
+
+/**
+ *---------------------------------
+ * admin panel users profil table
+ *---------------------------------
+ **/

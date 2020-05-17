@@ -1,5 +1,3 @@
-// custom css
-
 /**
 *---------------------------------
 * admin panel users profil table
@@ -9,5 +7,5 @@
 #userPanel table th,
 #userPanel .table td {
   vertical-align: middle !important;
-
 }
+

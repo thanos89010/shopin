@@ -2,9 +2,10 @@
 
 namespace App;
 
+use App\Photo;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -15,9 +16,10 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'username', 'email', 'password',"first_name","last_name","photo_id"
+    // ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -38,9 +40,14 @@ class User extends Authenticatable
     ];
 
 
-    public function photo()
+    public function image()
     {
-        return $this->belongsTo(Photo::class);
+        return $this->morphOne(Photo::class , 'imageable');
     }
+
+    public function role()
+{
+    return $this->belongsTo(Role::class);
+}
     
 }

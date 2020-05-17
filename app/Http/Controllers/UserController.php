@@ -3,84 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\UserRepository;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    protected $userRepository;
 
-        return view('admin.user.index');
-        
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function index()
+    {
+        $users =  $this->userRepository->all();
+        return view("admin.user.index", compact("users"));
+    }
+
+
     public function create()
     {
         return view('admin.user.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $this->userRepository->create($request);
+        return redirect(route('user.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show($userId)
     {
-        //
+        $user = $this->userRepository->findById($userId);
+        return view("admin.user.show", compact("user"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit($userId)
     {
-        //
+        $user = $this->userRepository->findById($userId);
+        return view('admin.user.edit', compact("user"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update($userId)
     {
-        //
+        $this->userRepository->update($userId);
+        return redirect(route('user.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy($userId)
     {
-        //
+        $this->userRepository->delete($userId);
+        return redirect()->back();
     }
 }
