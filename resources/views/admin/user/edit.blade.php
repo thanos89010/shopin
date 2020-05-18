@@ -27,6 +27,11 @@
   {!! Form::password("password", ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
+  {!! Form::label("role_id", "Role", ) !!}
+  {!! Form::select("role_id", [""=>"Choose Option"] +$roles,null, ["class"=>"form-control"]) !!}
+
+</div>
+<div class="form-group">
   {!! Form::submit("Create User", ["class"=>"btn btn-info"]) !!}
 </div>
 

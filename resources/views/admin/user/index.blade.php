@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1 class="my-4 font-weight-bold" >View Users</h1>
+<h1 class="my-4 font-weight-bold">View Users</h1>
 <div class="card-body m-4 " id="userPanel">
   <div class="table-stats order-table ov-h">
     <table class="table ">
@@ -11,7 +11,7 @@
           <th class="avatar">Avatar</th>
           <th>Name</th>
           <th>Email</th>
-          {{-- <th>Role</th> --}}
+          <th>Role</th>
           <th>Created</th>
           <th>Updated</th>
           <th>Profil User</th>
@@ -25,14 +25,13 @@
           <td class="serial">{{$num+1}}.</td>
           <td class="avatar">
             <div class="round-img">
-              <a href="#"><img class="rounded-circle" height="50"
-                  src="{{$user->image->url ? $user->image->url: 'http://placehold.it/400x400'}}"></a>
-
+              <img class="rounded-circle" height="50"
+                src="{{$user->image->url ? $user->image->url: 'http://placehold.it/400x400'}}">
             </div>
           </td>
           <td> <span class="name">{{$user->first_name}}</span> </td>
           <td> <span class="product">{{$user->email}}</span> </td>
-          {{-- <td> <span class="product">{{$user->role->name}}</span> </td> --}}
+          <td> <span class="product">{{$user->role->name}}</span> </td>
           <td> <span class="product">{{$user->created_at->diffForHumans()}}</span> </td>
           <td> <span class="product">{{$user->updated_at->diffForHumans()}}</span> </td>
           <td>

@@ -90,8 +90,21 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
             <a class="collapse-item" href="{{ route('roles.create') }}">Create And View Roles </a>
-            <a class="collapse-item" href="utilities-border.html">Edit Roles </a>
+          </div>
+        </div>
+      </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
+          aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Product</span>
+        </a>
+        <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
+            {{-- <a class="collapse-item" href="{{route('user.index')}}">View All Product</a> --}}
           </div>
         </div>
       </li>

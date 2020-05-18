@@ -1,16 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
-
-
 use App\Role;
 use Illuminate\Http\Request;
 use App\Repositories\RoleRepository;
-
 class RoleController extends Controller
 {
-  protected $roleRepository;
 
+  protected $roleRepository;
+  
   public function __construct(RoleRepository $roleRepository)
   {
     $this->roleRepository = $roleRepository;
@@ -19,27 +16,20 @@ class RoleController extends Controller
   public function create()
   {
     $roles =  $this->roleRepository->all();
-    
-
-      return view("admin.role.create", compact("roles"));
+    return view("admin.role.create", compact("roles"));
   }
-
 
   public function store(Request $request)
   {
-     
     $this->roleRepository->create($request);
-
-      return redirect(route('roles.create'));
+    return redirect(route('roles.create'));
   }
-  
-  public function edit($roleId)  
+
+  public function edit($roleId)
   {
     $role = $this->roleRepository->findById($roleId);
- 
-    return view("admin.role.edit",compact("role"));
+    return view("admin.role.edit", compact("role"));
   }
-
 
   public function update($request)
   {
@@ -49,9 +39,7 @@ class RoleController extends Controller
 
   public function destroy($roleId)
   {
-      $this->roleRepository->delete($roleId);
-      return redirect()->back();
+    $this->roleRepository->delete($roleId);
+    return redirect()->back();
   }
-
-
 }

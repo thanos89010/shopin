@@ -29,6 +29,14 @@ Route::get("/roles/{id}/edit","RoleController@edit")->name("roles.edit");
 Route::PATCH("/roles/{id}/update","RoleController@update")->name("roles.update");
 Route::get("/roles/{id}","RoleController@destroy")->name("roles.destroy");
 
+route::get("/products","ProductController@index")->name("product.index");
+route::get("/product/create","ProductController@create")->name("product.create");
+route::post("/product/create","ProductController@store")->name("product.store");
+Route::get("/product/{id}","ProductController@show")->name("product.show");
+Route::get("/product/{id}/edit","ProductController@edit")->name("product.edit");
+Route::PATCH("/product/{id}/update","ProductController@update")->name("product.update");
+Route::get("/product/{id}/delete","ProductController@destroy")->name("product.destroy");
+
 
 
 
