@@ -11,8 +11,9 @@ class ProductRepository
   public function findById($productId)
   {
     return Product::whereId($productId)
-      ->get();
+      ->first();
   }
+
 
   public function all()
   {
@@ -26,7 +27,6 @@ class ProductRepository
 
     $data = collect($request)->except("url")->all();
     $data['slug'] =  str_replace(' ', '-', $request->name);
-    $data['product_status_id'] =  1;
 
     $product->create($data);
 
@@ -42,5 +42,6 @@ class ProductRepository
 
 
   }
+
 
 }

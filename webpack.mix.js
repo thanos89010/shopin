@@ -15,7 +15,8 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/front.js", "public/js")
     .js("resources/js/map.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
-    .sass("resources/sass/style.scss", "public/css");
+    .sass("resources/sass/style.scss", "public/css")
+    .sass("resources/sass/productStyle.scss", "public/css");
 
 /**
  *---------------------------------

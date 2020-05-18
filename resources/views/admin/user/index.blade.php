@@ -26,7 +26,7 @@
           <td class="avatar">
             <div class="round-img">
               <img class="rounded-circle" height="50"
-                src="{{$user->image->url ? $user->image->url: 'http://placehold.it/400x400'}}">
+                src="{{$user->image ? $user->image->url: 'http://placehold.it/400x400'}}">
             </div>
           </td>
           <td> <span class="name">{{$user->first_name}}</span> </td>
