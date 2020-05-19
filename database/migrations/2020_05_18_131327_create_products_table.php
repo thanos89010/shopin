@@ -24,8 +24,11 @@ class CreateProductsTable extends Migration
             $table->double('shipping_cost');
             $table->integer("quantity");
             $table->unsignedInteger("product_status")->default(1);
+            $table->unsignedInteger("category_id");
             $table->timestamps();
 
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

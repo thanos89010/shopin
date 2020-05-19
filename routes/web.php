@@ -38,6 +38,13 @@ Route::PATCH("/product/{id}/update","ProductController@update")->name("product.u
 Route::get("/product/{id}/delete","ProductController@destroy")->name("product.destroy");
 
 
+Route::get("/category","CategoryController@create")->name("category.create");
+Route::post("/category","CategoryController@store")->name("category.store");
+Route::get("/category/{id}/edit","CategoryController@edit")->name("category.edit");
+Route::PATCH("/category/{id}/update","CategoryController@update")->name("category.update");
+Route::get("/category/{id}","CategoryController@destroy")->name("category.destroy");
+
+
 
 
 // Route::group(['middleware' => ['']], function () {

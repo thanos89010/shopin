@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="profile-img">
-          <img height="200" src="{{$user->image->url ? $user->image->url : 'http://placehold.it/200x200'}}" alt="" />
+          <img height="200" src="{{$user->image ? $user->image->url : 'http://placehold.it/200x200'}}" alt="" />
         </div>
       </div>
 

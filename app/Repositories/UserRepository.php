@@ -50,13 +50,20 @@ class UserRepository
     $user = User::whereId($userId)->firstOrFail();
     if (request()->password)
       $user->password = bcrypt(request()->password);
-    $user->update(request()->except('password'));
+    $user->update(request()->except('password',"url"));
+
+    if (request()->url) {
+      $file = request()->url;
+      $name = time() . $file->getClientOriginalName();
+      $file->move('images', $name);
+      $user->image->update(["url" => $name]);
+    }
   }
   
   public function delete($userId)
   {
     $user = $this->findById($userId);
-    unlink(public_path() . "/images/" . $user->url);
+    unlink(public_path()  . $user->image->url);
     User::whereId($userId)->delete();
   }
 }

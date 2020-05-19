@@ -8,17 +8,12 @@ use Illuminate\Http\Request;
 class ProductRepository
 {
 
-  public function findById($productId)
-  {
-    return Product::whereId($productId)
-      ->first();
-  }
-
 
   public function all()
   {
-    return Product::all();
+    return   Product::all();
   }
+
 
   public function create(Request $request)
   {
@@ -43,5 +38,32 @@ class ProductRepository
 
   }
 
+  public function findById($productId)
+  {
+    return Product::whereId($productId)
+      ->first();
+  }
 
+  public function update(Request $request)
+  {
+    $product = Product::whereId($request->id)->first();
+
+    $product->update($request->except("url"));
+
+    if ($request->url) {
+      $file = $request->url;
+      $name = time() . $file->getClientOriginalName();
+      $file->move('images', $name);
+      $product->image->update(["url" => $name]);
+    }
+  }
+
+  public function delete($ProductId)
+  {
+    $product = $this->findById($ProductId);
+    unlink(public_path()  . $product->image->url);
+    Product::whereId($ProductId)->delete();
+  }
+
+  
 }

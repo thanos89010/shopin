@@ -26,7 +26,7 @@
             {{ $role->name }}
           </span>
           <div class="d-flex ">
-            <a class=" btn btn-info " href="{{ route('roles.edit',$role->id) }}">Edit Role</a>
+            <a class=" btn btn-info mr-2" href="{{ route('roles.edit',$role->id) }}">Edit Role</a>
             {!! Form::open(["mathod"=>"delete","action"=>["RoleController@destroy",$role->id]]) !!}
             <a class="btn btn-danger" href="{{ route('roles.destroy',$role->id) }}">Delete Role</a>
             {!! Form::close() !!}

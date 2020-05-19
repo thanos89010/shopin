@@ -40,12 +40,12 @@
           <td>
             <a class="btn btn-primary" href="{{route('product.show',$product->id)}}" class="nav-link">Show</a>
           </td>
-          {{-- <td>
-            <a class="btn btn-info" href="{{route('user.edit',$user->id)}}" class="nav-link">Edit</a>
+          <td>
+            <a class="btn btn-info" href="{{route('product.edit',$product->id)}}" class="nav-link">Edit</a>
           </td>
           <td>
-            <a class="btn btn-danger" href="{{route('user.destroy',$user->id)}}" class="nav-link">Delete</a>
-          </td> --}}
+            <a class="btn btn-danger" href="{{route('product.destroy',$product->id)}}" class="nav-link">Delete</a>
+          </td>
         </tr>
 
         @endforeach

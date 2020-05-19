@@ -22,6 +22,7 @@ class ProductSeeder extends Seeder
             'shipping_cost' => 29.99,
             'description' => 'MackBook Pro',
             'quantity' => 30,
+            'category_id' => 2,
 
         ]);
         Product::create([
@@ -32,7 +33,8 @@ class ProductSeeder extends Seeder
             'shipping_cost' => 19.99,
             'description' => 'Dell Vostro 3557',
             'quantity' => 0,
-            "product_status"=>0
+            "product_status"=>0,
+            'category_id' => 2,
 
         ]);
 
@@ -44,6 +46,7 @@ class ProductSeeder extends Seeder
             'shipping_cost' => 14.99,
             'description' => 'iPhone 11 Pro',
             'quantity' => 2,
+            'category_id' => 1,
 
         ]);
     }
