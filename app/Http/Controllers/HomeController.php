@@ -2,27 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Repositories\HomeRepository;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  protected $homeRepository;
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+  public function __construct(HomeRepository $homeRepository)
+  {
+    $this->homeRepository = $homeRepository;
+  }
+
+
     public function index()
     {
-        return view('home');
+      
+        $categories = $this->homeRepository->showCategory();
+        $subcategories = $this->homeRepository->showSubCategory();
+        // foreach ($categories as $num => $category ) {
+           
+        //     dd($category->par);
+        //    }   
+    
+        
+        return view("home",compact("categories","subcategories"));
     }
 }

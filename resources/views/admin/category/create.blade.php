@@ -16,6 +16,11 @@
         {!! Form::textarea("body", null, ["class"=>"form-control","rows"=>4]) !!}
       </div>
       <div class="form-group pl-5">
+        {!! Form::label("parrent_id", "Sub Category:") !!}
+        {!! Form::select("parrent_id", [""=>"Choose Category"] + $parrentCategories, null, ["class"=>"form-control"])
+        !!}
+      </div>
+      <div class="form-group pl-5">
         {!! Form::submit("Create Role", ["class"=>"btn btn-primary"]) !!}
       </div>
       {!! Form::close() !!}

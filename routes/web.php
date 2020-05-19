@@ -54,4 +54,4 @@ Route::get("/category/{id}","CategoryController@destroy")->name("category.destro
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

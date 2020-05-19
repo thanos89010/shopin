@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductRepository
@@ -63,6 +64,11 @@ class ProductRepository
     $product = $this->findById($ProductId);
     unlink(public_path()  . $product->image->url);
     Product::whereId($ProductId)->delete();
+  }
+
+  public function showProduct()
+  {
+    return Category::pluck("name","id")->all();
   }
 
   

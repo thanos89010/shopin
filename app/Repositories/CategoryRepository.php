@@ -38,4 +38,10 @@ class CategoryRepository
   {
     Category::whereId($categoryId)->first()->delete();
   }
+
+  public function showCategory()
+  {
+    return Category::pluck("name","id")->all();
+    
+  }
 }
