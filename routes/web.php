@@ -45,7 +45,9 @@ Route::PATCH("/category/{id}/update","CategoryController@update")->name("categor
 Route::get("/category/{id}","CategoryController@destroy")->name("category.destroy");
 
 
-
+Route::get("/cart","CartController@index")->name("cart.index");
+Route::post("/cart","CartController@store")->name("cart.store");
+Route::post('/update', 'CartController@update')->name('cart.update');
 
 // Route::group(['middleware' => ['']], function () {
 //     //  Admin panel 

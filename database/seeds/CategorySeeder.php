@@ -16,6 +16,7 @@ class CategorySeeder extends Seeder
         Category::create([
             "name"=>"Phone",
             "body"=>"phone phone",
+           
         ]);
 
         Category::create([

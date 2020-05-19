@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
-use Illuminate\Http\Request;
+use app\Helpers\showsHelper;
 use App\Repositories\HomeRepository;
+use Symfony\Component\Console\Helper\Helper;
 
 class HomeController extends Controller
 {
@@ -15,19 +16,14 @@ class HomeController extends Controller
   {
     $this->homeRepository = $homeRepository;
   }
-
+ 
 
     public function index()
     {
       
-        $categories = $this->homeRepository->showCategory();
-        $subcategories = $this->homeRepository->showSubCategory();
-        // foreach ($categories as $num => $category ) {
-           
-        //     dd($category->par);
-        //    }   
-    
+         $categories = $this->homeRepository->showCategory();
+        $products = $this->homeRepository->showProduct();
         
-        return view("home",compact("categories","subcategories"));
+        return view("home",compact("categories","products"));
     }
 }

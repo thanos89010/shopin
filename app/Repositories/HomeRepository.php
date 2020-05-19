@@ -3,16 +3,19 @@
 namespace App\Repositories;
 
 use App\Category;
+use App\Product;
 
 class HomeRepository
 {
   public function showCategory()
   {
-    // return Category::whereParrentId(0)->get();
     return Category::all();
   }
-  public function showSubCategory()
+  public function showProduct()
   {
-    return Category::whereParentId(1)->get();
+    return Product::all();
   }
+
+
+ 
 }

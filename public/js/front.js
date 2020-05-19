@@ -288,7 +288,7 @@ $.fn.alignElementsSameHeight = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Anastasia\Desktop\shopin\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\arxi-\OneDrive\Υπολογιστής\larave-esho\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -37415,10 +37415,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Anastasia\Desktop\shopin\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\Anastasia\Desktop\shopin\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\Users\Anastasia\Desktop\shopin\resources\sass\style.scss */"./resources/sass/style.scss");
-module.exports = __webpack_require__(/*! C:\Users\Anastasia\Desktop\shopin\resources\sass\productStyle.scss */"./resources/sass/productStyle.scss");
+__webpack_require__(/*! C:\Users\arxi-\OneDrive\Υπολογιστής\larave-esho\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\arxi-\OneDrive\Υπολογιστής\larave-esho\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\arxi-\OneDrive\Υπολογιστής\larave-esho\resources\sass\style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! C:\Users\arxi-\OneDrive\Υπολογιστής\larave-esho\resources\sass\productStyle.scss */"./resources/sass/productStyle.scss");
 
 
 /***/ })

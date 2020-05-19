@@ -15,6 +15,7 @@ class CategoryRepository
   
   public function create(Request $request)
   {
+    
     Category::create($request->all());
     
   }

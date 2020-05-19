@@ -68,22 +68,35 @@
             </div>
             <div class="container">
                 <div class="product-slider owl-carousel owl-theme">
+                    @foreach ($products as $product)
                     <div class="item">
                         <div class="product">
                             <div class="flip-container">
                                 <div class="flipper">
-                                    <div class="front"><a href="detail.html"><img src="img/product1.jpg" alt=""
-                                                class="img-fluid"></a></div>
-                                    <div class="back"><a href="detail.html"><img src="img/product1_2.jpg" alt=""
-                                                class="img-fluid"></a></div>
+                                    <div class="front">
+                                        <a href="detail.html">
+                                            <img height="80" src="{{ $product->image->url }}" alt="" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="detail.html">
+                                            <img height="80" src="{{ $product->image->url }}" alt="" class="img-fluid">
+                                        </a>
+                                    </div>
                                 </div>
-                            </div><a href="detail.html" class="invisible"><img src="img/product1.jpg" alt=""
-                                    class="img-fluid"></a>
+                            </div>
+                            <a href="detail.html" class="invisible">
+                                <img src="{{ $product->image->url }}" alt="" class="img-fluid">
+                            </a>
                             <div class="text">
-                                <h3><a href="detail.html">Fur coat with very but very very long name</a></h3>
+                                <h3>
+                                    <a href="detail.html">{{ $product->name }}</a>
+                                </h3>
                                 <p class="price">
-                                    <del></del>$143.00
+                                    <del>
+                                    </del>${{ $product->price }}
                                 </p>
+                                @include('cart.add-product')
                             </div>
                             <!-- /.text-->
                             <div class="ribbon sale">
@@ -104,7 +117,9 @@
                         </div>
                         <!-- /.product-->
                     </div>
-                    <div class="item">
+
+                    @endforeach
+                    {{-- <div class="item">
                         <div class="product">
                             <div class="flip-container">
                                 <div class="flipper">
@@ -290,7 +305,7 @@
                             <!-- /.text-->
                         </div>
                         <!-- /.product-->
-                    </div>
+                    </div> --}}
                     <!-- /.product-slider-->
                 </div>
                 <!-- /.container-->
@@ -308,12 +323,21 @@
                     <h3>Get Inspired</h3>
                     <p class="lead">Get the inspiration from our world class designers</p>
                     <div id="get-inspired" class="owl-carousel owl-theme">
-                        <div class="item"><a href="#"><img src="img/getinspired1.jpg" alt="Get inspired"
-                                    class="img-fluid"></a></div>
-                        <div class="item"><a href="#"><img src="img/getinspired2.jpg" alt="Get inspired"
-                                    class="img-fluid"></a></div>
-                        <div class="item"><a href="#"><img src="img/getinspired3.jpg" alt="Get inspired"
-                                    class="img-fluid"></a></div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/getinspired1.jpg" alt="Get inspired" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/getinspired2.jpg" alt="Get inspired" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="img/getinspired3.jpg" alt="Get inspired" class="img-fluid">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

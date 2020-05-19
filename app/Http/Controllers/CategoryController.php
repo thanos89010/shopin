@@ -20,10 +20,10 @@ class CategoryController extends Controller
 
   public function create()
   {
-    $parrentCategories = $this->categoryRepository->showCategory();
 
     $categories = $this->categoryRepository->all();
-    return view("admin.category.create",compact("categories","parrentCategories"));
+    $parentCategories = $this->categoryRepository->showCategory();
+    return view("admin.category.create",compact("categories","parentCategories"));
   }
 
   public function store(Request $request)

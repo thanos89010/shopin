@@ -16,8 +16,8 @@
         {!! Form::textarea("body", null, ["class"=>"form-control","rows"=>4]) !!}
       </div>
       <div class="form-group pl-5">
-        {!! Form::label("parrent_id", "Sub Category:") !!}
-        {!! Form::select("parrent_id", [""=>"Choose Category"] + $parrentCategories, null, ["class"=>"form-control"])
+        {!! Form::label("parent_id", "Sub Category:") !!}
+        {!! Form::select("parent_id", [""=>"Choose Category"] + $parentCategories, null, ["class"=>"form-control"])
         !!}
       </div>
       <div class="form-group pl-5">

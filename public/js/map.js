@@ -154,7 +154,7 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Anastasia\Desktop\shopin\resources\js\map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! C:\Users\arxi-\OneDrive\Υπολογιστής\larave-esho\resources\js\map.js */"./resources/js/map.js");
 
 
 /***/ })
