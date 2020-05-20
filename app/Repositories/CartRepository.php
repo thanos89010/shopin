@@ -42,14 +42,27 @@ class CartRepository
   }
   public function update($request)
   {
+    if($request->quantity<=0)
+      return redirect()->back();
 
     \Cart::update(
       $request->id,
       [
         'quantity' => [
-          'value' => $request->quantity
+            'relative' => false,
+            'value' => $request->quantity
         ],
       ]
     );
+  }
+
+  public function delete($cartId)
+  {
+    \Cart::remove($cartId);
+  }
+
+  public function clear()
+  {
+    \Cart::clear();
   }
 }

@@ -23,5 +23,15 @@ class CategorySeeder extends Seeder
             "name"=>"Laptop",
             "body"=>"Laptop Laptop",
         ]);
+        Category::create([
+            "name"=>"Desktop",
+            "body"=>"Desktop Desktop",
+        ]);
+        Category::create([
+            "name"=>"Xiaomi",
+            "body"=>"Xiaomi Xiaomi",
+            "parent_id"=>1
+        ]);
+
     }
 }

@@ -1,11 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 Auth::routes();
 //  home 
-Route::get('/', function () {
-    return view('home');
-});
+
 //  home 
 
 //  Admin panel 
@@ -13,7 +12,8 @@ Route::get('/admin', function () {
     return view('layouts.admin');
 });
 //  Admin panel 
-
+Route::get("/cart/checkout","CheckoutController@index")->name("checkout.index");
+Route::post("/cart/checkout","CheckoutController@store")->name("checkout.store");
 
 Route::get("/users","UserController@index")->name("user.index");
 Route::get("/user/create","UserController@create")->name("user.create");
@@ -48,6 +48,10 @@ Route::get("/category/{id}","CategoryController@destroy")->name("category.destro
 Route::get("/cart","CartController@index")->name("cart.index");
 Route::post("/cart","CartController@store")->name("cart.store");
 Route::post('/update', 'CartController@update')->name('cart.update');
+Route::post('/delete/{id}', 'CartController@destroy')->name('cart.destroy');
+Route::post('/clear', 'CartController@clear')->name('cart.clear');
+
+
 
 // Route::group(['middleware' => ['']], function () {
 //     //  Admin panel 

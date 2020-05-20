@@ -11,39 +11,107 @@
             href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
         <div class="col-lg-6 text-center text-lg-right">
           <ul class="menu list-inline mb-0">
+            @guest
             <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-            <li class="list-inline-item"><a href="register.html">Register</a></li>
+            @if (Route::has('register'))
+            <li class="list-inline-item"><a href="{{ route('register') }}">Register</a></li>
+            @endif
+            @else
+            <li class="list-inline-item">
+              <a id="navbarDropdown" class=" dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->first_name }} <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </div>
+            </li>
+            @endguest
             <li class="list-inline-item"><a href="contact.html">Contact</a></li>
             <li class="list-inline-item"><a href="#">Recently viewed</a></li>
           </ul>
+          {{-- <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+            @guest
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li>
+          @if (Route::has('register'))
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          </li>
+          @endif
+          @else
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" v-pre>
+              {{ Auth::user()->first_name }} <span class="caret"></span>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+            </div>
+          </li>
+          @endguest
+          </ul> --}}
         </div>
       </div>
     </div>
     <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
       <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Customer login</h5>
-            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
-                aria-hidden="true">×</span></button>
-          </div>
-          <div class="modal-body">
-            <form action="customer-orders.html" method="post">
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Customer login</h5>
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                  aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
               <div class="form-group">
-                <input id="email-modal" type="text" placeholder="email" class="form-control">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                  value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
               <div class="form-group">
-                <input id="password-modal" type="password" placeholder="password" class="form-control">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                  name="password" required autocomplete="current-password">
+                @error('password')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
               <p class="text-center">
-                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                <button type="submit" class="btn btn-primary">
+                  {{ __('Login') }}
+                </button>
               </p>
-            </form>
-            <p class="text-center text-muted">Not registered yet?</p>
-            <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and
-              done in 1 minute and gives you access to special discounts and much more!</p>
+              <p class="text-center text-muted">Not registered yet?</p>
+              <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy
+                and
+                done in 1 minute and gives you access to special discounts and much more!</p>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
     <!-- *** TOP BAR END ***-->
