@@ -13,7 +13,9 @@ Route::get('/admin', function () {
 });
 //  Admin panel 
 Route::get("/cart/checkout","CheckoutController@index")->name("checkout.index");
+Route::get("/cart/checkout/done","CheckoutController@done")->name("checkout.done");
 Route::post("/cart/checkout","CheckoutController@store")->name("checkout.store");
+
 
 Route::get("/users","UserController@index")->name("user.index");
 Route::get("/user/create","UserController@create")->name("user.create");
@@ -61,3 +63,4 @@ Route::post('/clear', 'CartController@clear')->name('cart.clear');
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/categories', 'HomeController@categories')->name('home.categories');

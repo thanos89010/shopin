@@ -22,11 +22,27 @@ class CheckoutController extends Controller
     return view("cart.checkout.index",compact("categories","products"));
 
   }
+
+  public function show()
+  {
+    $categories = $this->checkoutRepository->showCategory();
+    $products = $this->checkoutRepository->showProduct();
+    
+    return view("cart.checkout.show",compact("categories","products"));
+    
+  }
   public function store(Request $request)
   {
     $this->checkoutRepository->create($request);
 
-    return redirect()->back();
+    return redirect(route('checkout.done'));
+  }
+
+    public function done()
+  {
+    $categories = $this->checkoutRepository->showCategory();
+    $products = $this->checkoutRepository->showProduct();
+    return view("includes.thx-order",compact("categories","products"));
   }
 
     

@@ -16,6 +16,13 @@ class HomeRepository
     return Product::all();
   }
 
+  public function categories($request)
+  {
+
+  
+    
+   
+  }
 
  
 }

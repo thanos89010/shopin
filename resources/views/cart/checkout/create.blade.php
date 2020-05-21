@@ -1,11 +1,11 @@
 {!! Form::open(["method"=>"post","action"=>"CheckoutController@store"]) !!}
   <h1>Checkout - Address</h1>
-  <div class="nav flex-column flex-md-row nav-pills text-center"><a href="checkout1.html"
-      class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-map-marker"> </i>Address</a><a
-      href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-truck"> </i>Delivery
-      Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-money">
-      </i>Payment Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i
-        class="fa fa-eye"> </i>Order Review</a></div>
+  <div class="nav flex-column flex-md-row nav-pills text-center">
+    <a href="checkout1.html"
+      class="nav-link flex-sm-fill text-sm-center active"> 
+      <i class="fa fa-map-marker"></i>
+      Address</a>
+      </div>
   <div class="content py-3">
     <div class="row">
       <div class="col-md-6">
@@ -39,8 +39,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          {!! Form::label("ciy", "Πόλη") !!}
-          {!! Form::text("ciy", null, ["class"=>"form-control"]) !!}
+          {!! Form::label("city", "Πόλη") !!}
+          {!! Form::text("city", null, ["class"=>"form-control"]) !!}
         </div>
       </div>
       <div class="col-md-6">

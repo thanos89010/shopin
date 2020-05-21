@@ -141,8 +141,10 @@
       <div id="navigation" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a href="#" class="nav-link active">Αρχική</a></li>
-          <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown"
-              data-delay="200" class="dropdown-toggle nav-link">Προϊόντα<b class="caret"></b></a>
+          <li class="nav-item dropdown menu-large">
+            <a href="{{ route("home.categories") }}" {{-- data-toggle="dropdown" --}} data-hover="dropdown"
+              data-delay="200" class="dropdown-toggle nav-link">Προϊόντα<b class="caret"></b>
+            </a>
             @include('header.nav-dropdown')
           </li>
         </ul>

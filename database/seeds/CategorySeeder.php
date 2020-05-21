@@ -33,5 +33,11 @@ class CategorySeeder extends Seeder
             "parent_id"=>1
         ]);
 
+        Category::create([
+            "name"=>"MacBook",
+            "body"=>"MacBook MacBook",
+            "parent_id"=>2
+        ]);
+
     }
 }

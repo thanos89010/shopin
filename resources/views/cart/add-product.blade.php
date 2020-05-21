@@ -1,4 +1,4 @@
-{!! Form::open(["method"=>"post","action"=>"CartController@store"]) !!}
+{!! Form::open(["method"=>"post","action"=>"CartController@store" , "class"=>"d-flex"]) !!}
 {!! Form::hidden("id", $product->id ) !!}
 {!! Form::hidden("name", $product->name ) !!}
 {!! Form::hidden("details", $product->details ) !!}
@@ -7,8 +7,10 @@
 {!! Form::hidden("discount_price", $product->discount_price) !!}
 {!! Form::hidden("shipping_cost", $product->shipping_cost ) !!}
 {!! Form::hidden("quantity", 1 )!!}
-<button class="btn btn-secondary">
-  <i class="fa fa-shopping-cart"></i>
+
+<button class="d-flex align-items-center btn btn-primary">
+  <i class="fa fa-shopping-cart mr-2"></i>
   <span>add to cart</span>
 </button>
+
 {!! Form::close() !!}

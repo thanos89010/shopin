@@ -30,7 +30,6 @@
                     @if (\Agent::isDesktop())
                     <th>Discount</th>
                     @endif
-
                     <th>Total</th>
                   </tr>
                 </thead>

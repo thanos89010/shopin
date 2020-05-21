@@ -15,17 +15,17 @@ class UserSeeder extends Seeder
         //
         User::create([
             "role_id"=>1,
-            "first_name"=>"thanos",
+            "first_name"=>"Θανος",
             "user_name"=>"thanos89010",
-            "last_name"=>"talaridis",
+            "last_name"=>"Ταλαριδης",
             "email"=>"thanos@gmail.com",
             "password"=> bcrypt("thanos")
         ]);
         User::create([
             "role_id"=>2,
-            "first_name"=>"maria",
+            "first_name"=>"Μαρια",
             "user_name"=>"parmaria",
-            "last_name"=>"filipidou",
+            "last_name"=>"Φιλιππιδου",
             "email"=>"maria@gmail.com",
             "password"=> bcrypt("maria")
         ]);
