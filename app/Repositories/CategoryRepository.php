@@ -16,6 +16,7 @@ class CategoryRepository
   public function create(Request $request)
   {
     
+    $data['slug'] =  str_replace(' ', '-', $request->name);
     Category::create($request->all());
     
   }

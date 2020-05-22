@@ -20,4 +20,9 @@ class Category extends Model
         return $this->hasMany('App\Category', 'parent_id');
     }
 
+    public function getNameAttribute ($value)
+    {
+        return ucfirst($value);
+    }
+
 }

@@ -7,13 +7,33 @@ use App\Product;
 
 class HomeRepository
 {
-  public function showCategory()
+
+
+  public function showCategory($id = null)
   {
-    return Category::all();
+    if($id)
+      return  Category::whereId($id)->get();
+
   }
-  public function showProduct()
+
+  public function showMenu()
   {
-    return Product::all();
+      return Category::all();
+  }
+
+
+  public function showProduct($id = null)
+  {
+   if($id){
+     return  Product::whereCategoryId($id)->get();
+   }
+   
+   else {
+     return Product::all();
+   }
+
+
+   
   }
 
   public function categories($request)

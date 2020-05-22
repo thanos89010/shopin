@@ -9,8 +9,10 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item active">Ladies</li>
+              <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+              <li aria-current="page" class="breadcrumb-item active">
+                {{-- {{ $categories ? $categories->first()->name : "ss"  }} --}}
+              </li>
             </ol>
           </nav>
         </div>
@@ -126,12 +128,12 @@
         </div>
         <div class="col-lg-9">
           <div class="box">
-            <h1>Ladies</h1>
-            <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.</p>
+            {{-- <h1>{{ $categories->first()->name }}</h1>
+            <p>{{ $categories->first()->body }}</p> --}}
           </div>
           <div class="box info-bar">
             <div class="row">
-              <div class="col-md-12 col-lg-4 products-showing">Showing <strong>12</strong> of <strong>25</strong> products</div>
+              <div class="col-md-12 col-lg-4 products-showing">Showing <strong>{{ count($products) }}</strong> of <strong>25</strong> products</div>
               <div class="col-md-12 col-lg-7 products-number-sort">
                 <form class="form-inline d-block d-lg-flex justify-content-between flex-column flex-md-row">
                   <div class="products-number"><strong>Show</strong><a href="#" class="btn btn-sm btn-primary">12</a><a href="#" class="btn btn-outline-secondary btn-sm">24</a><a href="#" class="btn btn-outline-secondary btn-sm">All</a><span>products</span></div>
@@ -147,7 +149,7 @@
             </div>
           </div>
           <div class="row products">
-            @foreach ($products as $product)
+              @foreach($products as $product)               
             <div class="col-lg-4 col-md-6">
               <div class="product">
                 <div class="flip-container">
@@ -169,8 +171,7 @@
               </div>
               <!-- /.product            -->
             </div>
-                
-            @endforeach
+             @endforeach
             <!-- /.products-->
           </div>
           <div class="pages">

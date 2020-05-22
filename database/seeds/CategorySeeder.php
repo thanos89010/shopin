@@ -16,27 +16,39 @@ class CategorySeeder extends Seeder
         Category::create([
             "name"=>"Phone",
             "body"=>"phone phone",
+            "slug"=>"Phone"
            
         ]);
 
         Category::create([
             "name"=>"Laptop",
             "body"=>"Laptop Laptop",
+            "slug"=>"Laptop"
         ]);
         Category::create([
             "name"=>"Desktop",
             "body"=>"Desktop Desktop",
+            "slug"=>"Desktop"
         ]);
         Category::create([
-            "name"=>"Xiaomi",
-            "body"=>"Xiaomi Xiaomi",
-            "parent_id"=>1
+            "name"=>"dell",
+            "body"=>"dell dell",
+            "slug"=>"dell",
+            "parent_id"=>2
         ]);
 
         Category::create([
             "name"=>"MacBook",
             "body"=>"MacBook MacBook",
+            "slug"=>"MacBook",
             "parent_id"=>2
+        ]);
+
+        Category::create([
+            "name"=>"Iphone",
+            "body"=>"Iphone Iphone",
+            "slug"=>"Iphone",
+            "parent_id"=>1
         ]);
 
     }

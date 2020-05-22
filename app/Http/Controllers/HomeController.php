@@ -22,20 +22,22 @@ class HomeController extends Controller
     public function index()
     {
       
-        $categories = $this->homeRepository->showCategory();
+      $categoriesMenu = $this->homeRepository->showMenu();
         $products = $this->homeRepository->showProduct();
         
-        return view("home",compact("categories","products"));
+        return view("home",compact("categoriesMenu","products"));
     }
 
-    public function categories()
+    public function categories($id = null)
     {
      
-      $categories = $this->homeRepository->showCategory();
-      $products = $this->homeRepository->showProduct();
-
-
-      return view("category",compact("categories","products"));
+      $categories = $this->homeRepository->showCategory($id);
+      $categoriesMenu = $this->homeRepository->showMenu();
+      $products = $this->homeRepository->showProduct($id );
+     
+      // dd(count($categories));
+     
+      return view("category",compact("categories","products","categoriesMenu"));
     }
 
 }

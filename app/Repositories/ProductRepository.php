@@ -48,7 +48,7 @@ class ProductRepository
   public function update(Request $request)
   {
     $product = Product::whereId($request->id)->first();
-
+    $product['slug'] =  str_replace(' ', '-', $request->name);
     $product->update($request->except("url"));
 
     if ($request->url) {
