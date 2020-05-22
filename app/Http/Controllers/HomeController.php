@@ -30,11 +30,11 @@ class HomeController extends Controller
 
     public function categories($id = null)
     {
-     
       $categories = $this->homeRepository->showCategory($id);
       $categoriesMenu = $this->homeRepository->showMenu();
-      $products = $this->homeRepository->showProduct($id );
-     
+      $products = $this->homeRepository->showProduct($id);
+
+    //  dd($products);
       // dd(count($categories));
      
       return view("category",compact("categories","products","categoriesMenu"));

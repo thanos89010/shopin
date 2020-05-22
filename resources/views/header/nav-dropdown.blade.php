@@ -4,7 +4,7 @@
       @foreach ($categoriesMenu as $category)
       <div class="col-md-6 col-lg-3">
         @if (!$category->parent_id)
-         <h5>  <a href="{{ route('home.categories',$category->name) }}">{{ $category->name }}</a></h5>
+         <h5>  <a href="{{ route('home.categories',$category->id) }}">{{ $category->name }}</a></h5>
         @endif
         <ul class="list-unstyled mb-3">
           @foreach ($category->children as $children)

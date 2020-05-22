@@ -128,8 +128,8 @@
         </div>
         <div class="col-lg-9">
           <div class="box">
-            {{-- <h1>{{ $categories->first()->name }}</h1>
-            <p>{{ $categories->first()->body }}</p> --}}
+            <h1>{{ $categories->first()->name }}</h1>
+            <p>{{ $categories->first()->body }}</p>
           </div>
           <div class="box info-bar">
             <div class="row">

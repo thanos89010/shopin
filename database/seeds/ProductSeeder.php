@@ -23,6 +23,7 @@ class ProductSeeder extends Seeder
             'description' => 'MackBook Pro',
             'quantity' => 30,
             'category_id' => 5,
+            "parent_id"=>2
 
         ]);
         Product::create([
@@ -35,6 +36,7 @@ class ProductSeeder extends Seeder
             'quantity' => 0,
             "product_status"=>0,
             'category_id' => 4,
+            "parent_id"=>2
 
         ]);
 
@@ -47,6 +49,7 @@ class ProductSeeder extends Seeder
             'description' => 'iPhone 11 Pro',
             'quantity' => 2,
             'category_id' => 6,
+            "parent_id"=>1
 
         ]);
     }

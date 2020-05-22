@@ -11,8 +11,9 @@ class HomeRepository
 
   public function showCategory($id = null)
   {
-    if($id)
+    if($id){
       return  Category::whereId($id)->get();
+    }
 
   }
 
@@ -24,13 +25,15 @@ class HomeRepository
 
   public function showProduct($id = null)
   {
-   if($id){
+    if($id){
+   if(Category::findOrFail($id)->parent_id){
      return  Product::whereCategoryId($id)->get();
    }
-   
-   else {
+     return Product::whereParentId($id)->get();
+}
+
      return Product::all();
-   }
+   
 
 
    
