@@ -11,41 +11,32 @@ class HomeRepository
 
   public function showCategory($id = null)
   {
-    if($id){
+    if ($id) {
       return  Category::whereId($id)->get();
     }
-
   }
 
   public function showMenu()
   {
-      return Category::all();
+    // $test = Category::findOrFail(1);
+    // dd($test->slug);
+    return Category::all();
   }
 
 
   public function showProduct($id = null)
   {
-    if($id){
-   if(Category::findOrFail($id)->parent_id){
-     return  Product::whereCategoryId($id)->get();
-   }
-     return Product::whereParentId($id)->get();
-}
+    if ($id) {
+      if (Category::findOrFail($id)->parent_id) {
+        return  Product::whereCategoryId($id)->get();
+      }
+      return Product::whereParentId($id)->get();
+    }
 
-     return Product::all();
-   
-
-
-   
+    return Product::all();
   }
 
   public function categories($request)
   {
-
-  
-    
-   
   }
-
- 
 }

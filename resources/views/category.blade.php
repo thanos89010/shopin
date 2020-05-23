@@ -11,7 +11,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
               <li aria-current="page" class="breadcrumb-item active">
-                {{-- {{ $categories ? $categories->first()->name : "ss"  }} --}}
+                {{ $categories ? $categories->first()->name : "ss"  }}
               </li>
             </ol>
           </nav>
@@ -27,58 +27,48 @@
             </div>
             <div class="card-body">
               <ul class="nav nav-pills flex-column category-menu">
-                <li><a href="category.html" class="nav-link">Men <span class="badge badge-secondary">42</span></a>
+                @foreach ($categoriesMenu as $category)
+                @if (!$category->parent_id)
+                <li><a href="{{ route('home.categories',$category->id) }}" class="nav-link">{{ $category->name }} <span
+                      class="badge badge-secondary">42</span></a>
+                  @endif
                   <ul class="list-unstyled">
-                    <li><a href="category.html" class="nav-link">T-shirts</a></li>
-                    <li><a href="category.html" class="nav-link">Shirts</a></li>
-                    <li><a href="category.html" class="nav-link">Pants</a></li>
-                    <li><a href="category.html" class="nav-link">Accessories</a></li>
+                    @foreach ($category->children as $children)
+                    <li><a href="{{ route('home.categories' ,$children->id) }}"
+                        class="nav-link">{{ $children->name }}</a></li>
+                    @endforeach
                   </ul>
                 </li>
-                <li><a href="category.html" class="nav-link active">Ladies  <span class="badge badge-light">123</span></a>
-                  <ul class="list-unstyled">
-                    <li><a href="category.html" class="nav-link">T-shirts</a></li>
-                    <li><a href="category.html" class="nav-link">Skirts</a></li>
-                    <li><a href="category.html" class="nav-link">Pants</a></li>
-                    <li><a href="category.html" class="nav-link">Accessories</a></li>
-                  </ul>
-                </li>
-                <li><a href="category.html" class="nav-link">Kids  <span class="badge badge-secondary">11</span></a>
-                  <ul class="list-unstyled">
-                    <li><a href="category.html" class="nav-link">T-shirts</a></li>
-                    <li><a href="category.html" class="nav-link">Skirts</a></li>
-                    <li><a href="category.html" class="nav-link">Pants</a></li>
-                    <li><a href="category.html" class="nav-link">Accessories</a></li>
-                  </ul>
-                </li>
+                @endforeach
               </ul>
             </div>
           </div>
           <div class="card sidebar-menu mb-4">
             <div class="card-header">
-              <h3 class="h4 card-title">Brands <a href="#" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"></i> Clear</a></h3>
+              <h3 class="h4 card-title">Brands <a href="#" class="btn btn-sm btn-danger pull-right"><i
+                    class="fa fa-times-circle"></i> Clear</a></h3>
             </div>
             <div class="card-body">
               <form>
                 <div class="form-group">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"> Armani  (10)
+                      <input type="checkbox"> Armani (10)
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"> Versace  (12)
+                      <input type="checkbox"> Versace (12)
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"> Carlo Bruni  (15)
+                      <input type="checkbox"> Carlo Bruni (15)
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"> Jack Honey  (14)
+                      <input type="checkbox"> Jack Honey (14)
                     </label>
                   </div>
                 </div>
@@ -88,7 +78,8 @@
           </div>
           <div class="card sidebar-menu mb-4">
             <div class="card-header">
-              <h3 class="h4 card-title">Colours <a href="#" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"></i> Clear</a></h3>
+              <h3 class="h4 card-title">Colours <a href="#" class="btn btn-sm btn-danger pull-right"><i
+                    class="fa fa-times-circle"></i> Clear</a></h3>
             </div>
             <div class="card-body">
               <form>
@@ -105,17 +96,17 @@
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"><span class="colour green"></span>  Green (20)
+                      <input type="checkbox"><span class="colour green"></span> Green (20)
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"><span class="colour yellow"></span>  Yellow (13)
+                      <input type="checkbox"><span class="colour yellow"></span> Yellow (13)
                     </label>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox"><span class="colour red"></span>  Red (10)
+                      <input type="checkbox"><span class="colour red"></span> Red (10)
                     </label>
                   </div>
                 </div>
@@ -133,10 +124,13 @@
           </div>
           <div class="box info-bar">
             <div class="row">
-              <div class="col-md-12 col-lg-4 products-showing">Showing <strong>{{ count($products) }}</strong> of <strong>25</strong> products</div>
+              <div class="col-md-12 col-lg-4 products-showing">Showing <strong>{{ count($products) }}</strong> of
+                <strong>25</strong> products</div>
               <div class="col-md-12 col-lg-7 products-number-sort">
                 <form class="form-inline d-block d-lg-flex justify-content-between flex-column flex-md-row">
-                  <div class="products-number"><strong>Show</strong><a href="#" class="btn btn-sm btn-primary">12</a><a href="#" class="btn btn-outline-secondary btn-sm">24</a><a href="#" class="btn btn-outline-secondary btn-sm">All</a><span>products</span></div>
+                  <div class="products-number"><strong>Show</strong><a href="#" class="btn btn-sm btn-primary">12</a><a
+                      href="#" class="btn btn-outline-secondary btn-sm">24</a><a href="#"
+                      class="btn btn-outline-secondary btn-sm">All</a><span>products</span></div>
                   <div class="products-sort-by mt-2 mt-lg-0"><strong>Sort by</strong>
                     <select name="sort-by" class="form-control">
                       <option>Price</option>
@@ -149,18 +143,21 @@
             </div>
           </div>
           <div class="row products">
-              @foreach($products as $product)               
+            @foreach($products as $product)
             <div class="col-lg-4 col-md-6">
               <div class="product">
                 <div class="flip-container">
                   <div class="flipper">
-                    <div class="front"><a href="detail.html"><img src="{{ $product->image->url }}" alt="" class="img-fluid"></a></div>
-                    <div class="back"><a href="detail.html"><img src="{{ $product->image->url }}" alt="" class="img-fluid"></a></div>
+                    <div class="front"><a href="detail.html"><img src="{{ $product->image->url }}" alt=""
+                          class="img-fluid"></a></div>
+                    <div class="back"><a href="detail.html"><img src="{{ $product->image->url }}" alt=""
+                          class="img-fluid"></a></div>
                   </div>
-                </div><a href="detail.html" class="invisible"><img src="{{ $product->image->url }}" alt="" class="img-fluid"></a>
+                </div><a href="detail.html" class="invisible"><img src="{{ $product->image->url }}" alt=""
+                    class="img-fluid"></a>
                 <div class="text">
-                  <h3><a href="detail.html">{{ $product->details }}</a></h3>
-                  <p class="price"> 
+                  <h3><a href="detail.html">{{ $product->details }} </a></h3>
+                  <p class="price">
                     <del></del>${{ $product->price }}
                   </p>
                   <p class="buttons"><a href="detail.html" class="btn btn-outline-secondary">View detail</a>
@@ -171,20 +168,23 @@
               </div>
               <!-- /.product            -->
             </div>
-             @endforeach
+            @endforeach
             <!-- /.products-->
           </div>
           <div class="pages">
-            <p class="loadMore"><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load more</a></p>
+            <p class="loadMore"><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load
+                more</a></p>
             <nav aria-label="Page navigation example" class="d-flex justify-content-center">
               <ul class="pagination">
-                <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
+                      aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
                 <li class="page-item active"><a href="#" class="page-link">1</a></li>
                 <li class="page-item"><a href="#" class="page-link">2</a></li>
                 <li class="page-item"><a href="#" class="page-link">3</a></li>
                 <li class="page-item"><a href="#" class="page-link">4</a></li>
                 <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+                <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
+                      aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
               </ul>
             </nav>
           </div>
@@ -236,13 +236,15 @@ _________________________________________________________
       <!-- /.col-lg-3-->
       <div class="col-lg-3 col-md-6">
         <h4 class="mb-3">Where to find us</h4>
-        <p><strong>Obaju Ltd.</strong><br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great Britain</strong></p><a href="contact.html">Go to contact page</a>
+        <p><strong>Obaju Ltd.</strong><br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great
+            Britain</strong></p><a href="contact.html">Go to contact page</a>
         <hr class="d-block d-md-none">
       </div>
       <!-- /.col-lg-3-->
       <div class="col-lg-3 col-md-6">
         <h4 class="mb-3">Get the news</h4>
-        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas.</p>
         <form>
           <div class="input-group">
             <input type="text" class="form-control"><span class="input-group-append">
@@ -252,7 +254,10 @@ _________________________________________________________
         </form>
         <hr>
         <h4 class="mb-3">Stay in touch</h4>
-        <p class="social"><a href="#" class="facebook external"><i class="fa fa-facebook"></i></a><a href="#" class="twitter external"><i class="fa fa-twitter"></i></a><a href="#" class="instagram external"><i class="fa fa-instagram"></i></a><a href="#" class="gplus external"><i class="fa fa-google-plus"></i></a><a href="#" class="email external"><i class="fa fa-envelope"></i></a></p>
+        <p class="social"><a href="#" class="facebook external"><i class="fa fa-facebook"></i></a><a href="#"
+            class="twitter external"><i class="fa fa-twitter"></i></a><a href="#" class="instagram external"><i
+              class="fa fa-instagram"></i></a><a href="#" class="gplus external"><i class="fa fa-google-plus"></i></a><a
+            href="#" class="email external"><i class="fa fa-envelope"></i></a></p>
       </div>
       <!-- /.col-lg-3-->
     </div>
@@ -260,5 +265,5 @@ _________________________________________________________
   </div>
   <!-- /.container-->
 </div>
-    
+
 @endsection
