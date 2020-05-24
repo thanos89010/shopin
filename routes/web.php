@@ -62,5 +62,7 @@ Route::post('/clear', 'CartController@clear')->name('cart.clear');
 
 
 
+
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/categories/{id?}', 'HomeController@categories')->name('home.categories');
