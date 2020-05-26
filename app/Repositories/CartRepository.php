@@ -18,6 +18,12 @@ class CartRepository
   {
     return Product::all();
   }
+  public function showMenu()
+  {
+    // $test = Category::findOrFail(1);
+    // dd($test->slug);
+    return Category::all();
+  }
 
 
   public function all()

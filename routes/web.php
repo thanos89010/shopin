@@ -65,4 +65,6 @@ Route::post('/clear', 'CartController@clear')->name('cart.clear');
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/categories/filter/{id?}', 'HomeController@filterPrice')->name('home.filter');
+Route::get('/categories/filterRam', 'HomeController@filterRam')->name('home.filterRam');
 Route::get('/categories/{id?}', 'HomeController@categories')->name('home.categories');

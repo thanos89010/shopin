@@ -1,5 +1,6 @@
 <?php
 
+use App\Filter;
 use Illuminate\Database\Seeder;
 
 class FilterSeeder extends Seeder
@@ -12,5 +13,11 @@ class FilterSeeder extends Seeder
     public function run()
     {
         //
+        Filter::create([
+            "type"=>"ram"
+        ]);
+        Filter::create([
+            "type"=>"rom"
+        ]);
     }
 }

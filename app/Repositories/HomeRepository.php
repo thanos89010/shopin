@@ -2,8 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Category;
+use App\Filter;
 use App\Product;
+use App\Category;
+use App\FilterValue;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class HomeRepository
 {
@@ -18,8 +21,6 @@ class HomeRepository
 
   public function showMenu()
   {
-    // $test = Category::findOrFail(1);
-    // dd($test->slug);
     return Category::all();
   }
 
@@ -33,10 +34,35 @@ class HomeRepository
       return Product::whereParentId($id)->get();
     }
 
+
     return Product::all();
   }
 
-  public function categories($request)
+  public function filterPrice($id = null)
   {
+    if ($id) {
+      if (Category::findOrFail($id)->parent_id) {
+        return   QueryBuilder::for(Product::whereCategoryId($id))
+          ->allowedSorts('price')
+          ->get();
+      }
+      return  QueryBuilder::for(Product::whereParentId($id))
+        ->allowedSorts('price')
+        ->get();
+    }
+    return  QueryBuilder::for(Product::class)
+      ->allowedSorts('price')
+      ->get();
+  }
+
+  public function filterRam()
+  {
+    
+
+   return  QueryBuilder::for(FilterValue::class)
+   ->allowedFilters(['id',"product_filters.id"])
+    ->allowedIncludes('productFilters')
+    ->get();
+   
   }
 }

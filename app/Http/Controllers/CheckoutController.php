@@ -16,10 +16,10 @@ class CheckoutController extends Controller
 
   public function index()
   {
+    $categoriesMenu = $this->checkoutRepository->showMenu();
     $categories = $this->checkoutRepository->showCategory();
     $products = $this->checkoutRepository->showProduct();
-    
-    return view("cart.checkout.index",compact("categories","products"));
+    return view("cart.checkout.index",compact("categories","products","categoriesMenu"));
 
   }
 
@@ -34,7 +34,6 @@ class CheckoutController extends Controller
   public function store(Request $request)
   {
     $this->checkoutRepository->create($request);
-
     return redirect(route('checkout.done'));
   }
 

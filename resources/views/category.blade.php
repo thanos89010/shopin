@@ -43,102 +43,58 @@
               </ul>
             </div>
           </div>
+          @foreach (App\Filter::all() as $filter)
           <div class="card sidebar-menu mb-4">
             <div class="card-header">
               <h3 class="h4 card-title">Brands <a href="#" class="btn btn-sm btn-danger pull-right"><i
                     class="fa fa-times-circle"></i> Clear</a></h3>
             </div>
             <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Armani (10)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Versace (12)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Carlo Bruni (15)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Jack Honey (14)
-                    </label>
-                  </div>
-                </div>
-                <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
-              </form>
+              <ul class="list-group list-group-flush">
+                @foreach (App\FilterValue::whereFilterId($filter->id)->get() as $values)
+
+                <li class="list-group-item"><a
+                    href="{{ route('home.filterRam',['include=productFilters',"filter[product_filters.id]=$values->id"]) }}"
+                    type="checkbox">
+                    {{ $values->value }}</a> (10)</li>
+                @endforeach
+              </ul>
             </div>
           </div>
-          <div class="card sidebar-menu mb-4">
-            <div class="card-header">
-              <h3 class="h4 card-title">Colours <a href="#" class="btn btn-sm btn-danger pull-right"><i
-                    class="fa fa-times-circle"></i> Clear</a></h3>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"><span class="colour white"></span> White (14)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"><span class="colour blue"></span> Blue (10)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"><span class="colour green"></span> Green (20)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"><span class="colour yellow"></span> Yellow (13)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"><span class="colour red"></span> Red (10)
-                    </label>
-                  </div>
-                </div>
-                <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
-              </form>
-            </div>
-          </div>
+          @endforeach
           <!-- *** MENUS AND FILTERS END ***-->
           <div class="banner"><a href="#"><img src="img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div>
         </div>
         <div class="col-lg-9">
+          @if ($categories)
           <div class="box">
             <h1>{{ $categories->first()->name }}</h1>
             <p>{{ $categories->first()->body }}</p>
           </div>
+          @endif
           <div class="box info-bar">
             <div class="row">
               <div class="col-md-12 col-lg-4 products-showing">Showing <strong>{{ count($products) }}</strong> of
                 <strong>25</strong> products</div>
               <div class="col-md-12 col-lg-7 products-number-sort">
-                <form class="form-inline d-block d-lg-flex justify-content-between flex-column flex-md-row">
+                <div class=" d-block d-lg-flex justify-content-between flex-column flex-md-row">
                   <div class="products-number"><strong>Show</strong><a href="#" class="btn btn-sm btn-primary">12</a><a
                       href="#" class="btn btn-outline-secondary btn-sm">24</a><a href="#"
-                      class="btn btn-outline-secondary btn-sm">All</a><span>products</span></div>
-                  <div class="products-sort-by mt-2 mt-lg-0"><strong>Sort by</strong>
-                    <select name="sort-by" class="form-control">
-                      <option>Price</option>
-                      <option>Name</option>
-                      <option>Sales first</option>
-                    </select>
+                      class="btn btn-outline-secondary btn-sm">All</a><span>products</span>
                   </div>
-                </form>
+                  <div class="dropdown show ">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Order by
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="{{ route('home.filter',[request()->id,'sort=price']) }}"> Φθινουσα
+                        Σειρα</a>
+                      <a class="dropdown-item" href="{{ route('home.filter',[request()->id,'sort=-price']) }}">Aυξουσα
+                        Σειρα</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

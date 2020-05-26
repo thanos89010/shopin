@@ -19,9 +19,10 @@ class CartController extends Controller
 
   public function index()
   {
+    $categoriesMenu = $this->cartRepository->showMenu();
     $categories = $this->cartRepository->showCategory();
     $products = $this->cartRepository->showProduct();
-    return view("cart.index", compact("categories", "products"));
+    return view("cart.index", compact("categories", "products","categoriesMenu"));
   }
 
   public function store(Request $request)

@@ -14,8 +14,12 @@ class CreateFilterValuesTable extends Migration
     public function up()
     {
         Schema::create('filter_values', function (Blueprint $table) {
-            $table->id();
+            $table->increments("id");
+            $table->string("value");
+            $table->unsignedInteger("filter_id");
             $table->timestamps();
+
+            $table->foreign('filter_id')->references('id')->on('filters')->onDelete('cascade');
         });
     }
 
