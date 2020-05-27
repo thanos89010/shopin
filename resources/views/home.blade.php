@@ -71,7 +71,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2 class="mb-0">Hot this week</h2>
+                            <h3 class="mb-0 home-hot text-center">Τα διαλέξαμε αποκλειστικά για εσένα. Ανακάλυψέ τα!
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -327,100 +328,131 @@
     *** GET INSPIRED ***
     _________________________________________________________
     -->
-        <div class="container">
-            <div class="row">
-                <ul class="d-flex list-group list-group-horizontal ">
-                    <div class="col-md-3 p-0 m-0 col-sm-6">
-                        <li class="home-photo">
-                            <a href="">
-                                <span class="home-title">Top Επιλογες</span>
-                                <img src="{{ asset('images/box1.jpg') }}" alt="Get inspired" class="img-fluid">
-                                <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
-                            </a>
-                        </li>
+        <div class="choices">
+            <div class="box py-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="mb-0 home-hot text-center">Δες τι νέο "παίζει" στο Shopin!
+                            </h3>
+                        </div>
                     </div>
-                    <div class="col-md-3 p-0 m-0 col-sm-6">
-                        <li class="home-photo">
-                            <a href="">
-                                <span class="home-title">Top Επιλογες</span>
-                                <img src="{{ asset('images/box2.jpg') }}" alt="Get inspired" class="img-fluid">
-                                <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
-                            </a>
-                        </li>
-                    </div>
-                    <div class="col-md-3 p-0 m-0 col-sm-6">
-                        <li class="home-photo">
-                            <a href="">
-                                <span class="home-title">Top Επιλογες</span>
-                                <img src="{{ asset('images/box3.jpg') }}" alt="Get inspired" class="img-fluid">
-                                <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
-                            </a>
-                        </li>
-                    </div>
-                    <div class="col-md-3 p-0 m-0 col-sm-6">
-                        <li class="home-photo">
-                            <a href="">
-                                <span class="home-title">Top Επιλογες</span>
-                                <img src="{{ asset('images/box4.jpg') }}" alt="Get inspired" class="img-fluid">
-                                <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
-                            </a>
-                        </li>
-                    </div>
-                </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <ul class="d-flex list-group list-group-horizontal ">
+                        <div class="col-md-3 p-0 m-0 col-sm-6">
+                            <li class="home-photo">
+                                <a href="">
+                                    <span class="home-title">Top Επιλογες</span>
+                                    <img src="{{ asset('images/box1.jpg') }}" alt="Get inspired" class="img-fluid">
+                                    <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-md-3 p-0 m-0 col-sm-6">
+                            <li class="home-photo">
+                                <a href="">
+                                    <span class="home-title">Top Επιλογες</span>
+                                    <img src="{{ asset('images/box2.jpg') }}" alt="Get inspired" class="img-fluid">
+                                    <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-md-3 p-0 m-0 col-sm-6">
+                            <li class="home-photo">
+                                <a href="">
+                                    <span class="home-title">Top Επιλογες</span>
+                                    <img src="{{ asset('images/box3.jpg') }}" alt="Get inspired" class="img-fluid">
+                                    <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-md-3 p-0 m-0 col-sm-6">
+                            <li class="home-photo">
+                                <a href="">
+                                    <span class="home-title">Top Επιλογες</span>
+                                    <img src="{{ asset('images/box4.jpg') }}" alt="Get inspired" class="img-fluid">
+                                    <span class="home-description">Τα πιο hot προϊόντα σε περιμένουν</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- *** GET INSPIRED END ***-->
-    <!--
+        <!-- *** GET INSPIRED END ***-->
+        <!--
     *** BLOG HOMEPAGE ***
     _________________________________________________________
     -->
-    <div class="box text-center">
+        <div class="box text-center my-2">
+            <div class="container">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase">Τι μας κάνει ξεχωριστούς</h3>
+                    <p class="lead mb-0">What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="col-md-12">
-                <h3 class="text-uppercase">From our blog</h3>
-                <p class="lead mb-0">What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-md-12">
-            <div id="blog-homepage" class="row">
-                <div class="col-sm-6">
-                    <div class="post">
-                        <h4><a href="post.html">Fashion now</a></h4>
-                        <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and
-                                style</a></p>
-                        <hr>
-                        <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada
-                            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                            tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                        <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
-                        </p>
+                <div id="blog-homepage" class="row">
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <section class="newsletter">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="content">
+                                                <form>
+                                                    <h2>Δεν θες να χάνεις ευκαιρία;</h2>
+                                                    <div class="input-group">
+                                                        <input type="email" class="form-control"
+                                                            placeholder="Βάλε το e-mail σου εδώ">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn" type="submit">Εγγραφή</button>
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <section class="newsletter">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="content">
+                                                <form>
+                                                    <h2>Βρες το κοντινότερο κατάστημα</h2>
+                                                    <div class="input-group">
+                                                        <input type="email" class="form-control"
+                                                            placeholder="Συμπλήρωσε πόλη ή Τ.Κ.">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn" type="submit">Αναζήτηση</button>
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="post">
-                        <h4><a href="post.html">Who is who - example blog post</a></h4>
-                        <p class="author-category">By <a href="#">John Slim</a> in <a href="">About Minimal</a>
-                        </p>
-                        <hr>
-                        <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada
-                            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                            tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                        <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
-                        </p>
-                    </div>
-                </div>
+                <!-- /#blog-homepage-->
             </div>
-            <!-- /#blog-homepage-->
         </div>
+        <!-- /.container-->
+        <!-- *** BLOG HOMEPAGE END ***-->
     </div>
-    <!-- /.container-->
-    <!-- *** BLOG HOMEPAGE END ***-->
-</div>
 </div>
 @endsection
