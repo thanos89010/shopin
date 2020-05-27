@@ -57,12 +57,28 @@ class HomeRepository
 
   public function filterRam()
   {
-    
 
-   return  QueryBuilder::for(FilterValue::class)
-   ->allowedFilters(['id',"product_filters.id"])
-    ->allowedIncludes('productFilters')
-    ->get();
+    $test =  QueryBuilder::for(FilterValue::class)
+    ->allowedFilters(['id', "product_filters.id"])
+    ->allowedIncludes('productFilters.product')
+    ->get()
+    ->first();
+
+
+  if (count($test->productFilters()->get())) {
+    foreach ($test->productFilters()->get() as $tes) {
+      $pro[] =  $tes->product()->get();
+    }
+
+    return  $pro;
+  }
+  
+
+
+  //  return  QueryBuilder::for(FilterValue::class)
+  //  ->allowedFilters(['id',"product_filters.id"])
+  //   ->allowedIncludes('productFilters')
+  //   ->get();
    
   }
 }

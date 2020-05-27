@@ -46,15 +46,17 @@
           @foreach (App\Filter::all() as $filter)
           <div class="card sidebar-menu mb-4">
             <div class="card-header">
-              <h3 class="h4 card-title">Brands <a href="#" class="btn btn-sm btn-danger pull-right"><i
+              <h3 class="h4 card-title">{{ $filter->type }} <a href="#" class="btn btn-sm btn-danger pull-right"><i
                     class="fa fa-times-circle"></i> Clear</a></h3>
             </div>
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 @foreach (App\FilterValue::whereFilterId($filter->id)->get() as $values)
-
+                {{-- @php
+                dd($values->id);
+                @endphp --}}
                 <li class="list-group-item"><a
-                    href="{{ route('home.filterRam',['include=productFilters',"filter[product_filters.id]=$values->id"]) }}"
+                    href="{{ route('home.filterRam',['include=productFilters.product',"filter[id]=$values->id"]) }}"
                     type="checkbox">
                     {{ $values->value }}</a> (10)</li>
                 @endforeach
@@ -74,7 +76,12 @@
           @endif
           <div class="box info-bar">
             <div class="row">
-              <div class="col-md-12 col-lg-4 products-showing">Showing <strong>{{ count($products) }}</strong> of
+              <div class="col-md-12 col-lg-4 products-showing">Showing
+                @if ($products )
+                <strong>{{ count($products) }}</strong> of
+                @else
+                <strong>0</strong> of
+                @endif
                 <strong>25</strong> products</div>
               <div class="col-md-12 col-lg-7 products-number-sort">
                 <div class=" d-block d-lg-flex justify-content-between flex-column flex-md-row">
@@ -88,7 +95,7 @@
                       Order by
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="{{ route('home.filter',[request()->id,'sort=price']) }}"> Φθινουσα
+                      <a class="dropdown-item" href="{{ route('home.filter', [request()->id,'sort=price']) }}"> Φθινουσα
                         Σειρα</a>
                       <a class="dropdown-item" href="{{ route('home.filter',[request()->id,'sort=-price']) }}">Aυξουσα
                         Σειρα</a>
@@ -99,7 +106,13 @@
             </div>
           </div>
           <div class="row products">
+            @if ($products )
             @foreach($products as $product)
+            @if(request()->exists("include"))
+            @php
+            $product = $product->first();
+            @endphp
+            @endif
             <div class="col-lg-4 col-md-6">
               <div class="product">
                 <div class="flip-container">
@@ -125,6 +138,7 @@
               <!-- /.product            -->
             </div>
             @endforeach
+            @endif
             <!-- /.products-->
           </div>
           <div class="pages">

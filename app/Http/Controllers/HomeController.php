@@ -45,45 +45,46 @@ class HomeController extends Controller
   public function filterPrice($id = null)
   {
 
- 
+
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->filterPrice($id);
 
-  
+
 
     // dd($products);
-    return view("category", compact( "categoriesMenu","categories","products"));
-    
+    return view("category", compact("categoriesMenu", "categories", "products"));
   }
 
   public function filterRam($id = null)
   {
 
-    $test =  QueryBuilder::for(FilterValue::class)
-    ->allowedFilters(['id',"product_filters.id"])
-     ->allowedIncludes('productFilters')
-     ->get();
 
-     foreach ($test as $tes){
-     $product = $tes->productFilters->first()->product_id;
-     return Product::whereId($product)->first();
-     }
+    // $test =  QueryBuilder::for(FilterValue::class)
+    //   ->allowedFilters(['id', "product_filters.id"])
+    //   ->allowedIncludes('productFilters.product')
+    //   ->get()
+    //   ->first();
 
-     
+
+    // if (count($test->productFilters()->get())) {
+    //   foreach ($test->productFilters()->get() as $tes) {
+    //     $pro[] =  $tes->product()->get();
+    //   }
+    // }
+
+    // return  $pro;
+
+
 
 
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->filterRam($id);
 
-  
+    // dd($products);
 
     // dd($products);
-    return view("category", compact( "categoriesMenu","categories","products"));
-    
+    return view("category", compact("categoriesMenu", "categories", "products"));
   }
-    
-
-
 }

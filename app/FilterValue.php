@@ -21,4 +21,15 @@ class FilterValue extends Model
     {
         return $this->hasMany(ProductFilter::class);
     }
+
+    // public function products()
+    // {
+    //     $products = $this->hasMany(ProductFilter::class);
+
+    //     return $products;
+    //     foreach($products as $pro ){
+    //         return $this->belongsTo(Product::class);
+    //     }
+
+    // }
 }
