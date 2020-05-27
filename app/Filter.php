@@ -8,9 +8,15 @@ class Filter extends Model
 {
     //
     protected $guarded = [];
+
+    public function getTypeAttribute ($value)
+    {
+        return ucfirst($value);
+    }
     
     public function values()
     {
         return $this->hasMany(FilterValue::class);
     }
+
 }

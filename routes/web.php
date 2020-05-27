@@ -46,6 +46,23 @@ Route::get("/category/{id}/edit","CategoryController@edit")->name("category.edit
 Route::PATCH("/category/{id}/update","CategoryController@update")->name("category.update");
 Route::get("/category/{id}","CategoryController@destroy")->name("category.destroy");
 
+Route::get("/products/filter/value/{id?}","FilterValueController@create")->name("filterValue.create");
+Route::post("/products/filter/value","FilterValueController@store")->name("filterValue.store");
+Route::get("/products/filter/value/{id}/edit","FilterValueController@edit")->name("filterValue.edit");
+Route::PATCH("/products/filter/value/{id}/update","FilterValueController@update")->name("filterValue.update");
+Route::get("/products/filter/value/{id}","FilterValueController@destroy")->name("filterValue.destroy");
+
+
+
+Route::get("/products/filter","FilterController@create")->name("filter.create");
+Route::post("/products/filter","FilterController@store")->name("filter.store");
+Route::get("/products/filter/{id}/edit","FilterController@edit")->name("filter.edit");
+Route::PATCH("/products/filter/{id}/update","FilterController@update")->name("filter.update");
+Route::get("/products/filter/{id}","FilterController@destroy")->name("filter.destroy");
+
+
+
+
 
 Route::get("/cart","CartController@index")->name("cart.index");
 Route::post("/cart","CartController@store")->name("cart.store");
@@ -68,3 +85,4 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/categories/filter/{id?}', 'HomeController@filterPrice')->name('home.filter');
 Route::get('/categories/filterRam', 'HomeController@filterRam')->name('home.filterRam');
 Route::get('/categories/{id?}', 'HomeController@categories')->name('home.categories');
+Route::get('/products/{id}', 'HomeController@show')->name('home.show');

@@ -11,7 +11,10 @@ use Spatie\QueryBuilder\QueryBuilder;
 class HomeRepository
 {
 
-
+public function mightAlsoLike($id)
+{
+  return   Product::where("id","!=",$id)->inRandomOrder()->take(3)->get();
+}
   public function showCategory($id = null)
   {
     if ($id) {
@@ -72,13 +75,14 @@ class HomeRepository
 
     return  $pro;
   }
-  
 
 
-  //  return  QueryBuilder::for(FilterValue::class)
-  //  ->allowedFilters(['id',"product_filters.id"])
-  //   ->allowedIncludes('productFilters')
-  //   ->get();
    
   }
+
+ public function findById($productId)
+ {
+   return product::whereId($productId)
+    ->first();
+ }
 }

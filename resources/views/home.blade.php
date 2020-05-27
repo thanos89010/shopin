@@ -90,7 +90,7 @@
                             </a>
                             <div class="text">
                                 <h3>
-                                    <a href="detail.html">{{ $product->name }}</a>
+                                    <a href="{{ route('home.show',$product->id) }}">{{ $product->name }} </a>
                                 </h3>
                                 <p class="price">
                                     <del>

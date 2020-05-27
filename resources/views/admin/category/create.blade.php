@@ -35,7 +35,7 @@
           </span>
           <div class="d-flex ">
             <a class=" btn btn-info mr-2" href="{{ route('category.edit',$category->id) }}">Edit category</a>
-            {!! Form::open(["mathod"=>"delete","action"=>["CategoryController@destroy",$category->id]]) !!}
+            {!! Form::open(["method"=>"delete","action"=>["CategoryController@destroy",$category->id]]) !!}
             <a class="btn btn-danger" href="{{ route('category.destroy',$category->id) }}">Delete category</a>
             {!! Form::close() !!}
           </div>

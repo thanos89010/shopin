@@ -14,77 +14,53 @@ use Symfony\Component\Console\Helper\Helper;
 class HomeController extends Controller
 {
   protected $homeRepository;
-
   public function __construct(HomeRepository $homeRepository)
   {
     $this->homeRepository = $homeRepository;
   }
-
-
   public function index()
   {
-
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->showProduct();
-
     return view("home", compact("categoriesMenu", "products"));
   }
-
   public function categories($id = null)
   {
     $categories = $this->homeRepository->showCategory($id);
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->showProduct($id);
-
-
-
     return view("category", compact("categories", "products", "categoriesMenu"));
   }
-
-
   public function filterPrice($id = null)
   {
-
-
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->filterPrice($id);
-
-
-
     // dd($products);
     return view("category", compact("categoriesMenu", "categories", "products"));
   }
-
   public function filterRam($id = null)
   {
-
-
-    // $test =  QueryBuilder::for(FilterValue::class)
-    //   ->allowedFilters(['id', "product_filters.id"])
-    //   ->allowedIncludes('productFilters.product')
-    //   ->get()
-    //   ->first();
-
-
-    // if (count($test->productFilters()->get())) {
-    //   foreach ($test->productFilters()->get() as $tes) {
-    //     $pro[] =  $tes->product()->get();
-    //   }
-    // }
-
-    // return  $pro;
-
-
-
-
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->filterRam($id);
-
     // dd($products);
-
     // dd($products);
     return view("category", compact("categoriesMenu", "categories", "products"));
   }
+  public function show($id)
+  {
+    $categories = $this->homeRepository->showCategory();
+    $categoriesMenu = $this->homeRepository->showMenu();
+    $product = $this->homeRepository->findById($id);
+    $mightAlsoLike = $this->homeRepository->mightAlsoLike($id);
+    
+
+
+     return view("product" , compact("categoriesMenu","categories","product","mightAlsoLike"));
+
+
+  }
+
+
 }
