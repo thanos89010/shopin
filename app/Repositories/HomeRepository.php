@@ -15,6 +15,7 @@ public function mightAlsoLike($id)
 {
   return   Product::where("id","!=",$id)->inRandomOrder()->take(3)->get();
 }
+
   public function showCategory($id = null)
   {
     if ($id) {

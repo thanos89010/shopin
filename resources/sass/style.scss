@@ -12,3 +12,65 @@
 
 }
 
+/**
+*---------------------------------
+* home 
+*---------------------------------
+**/
+
+
+.home-box a{
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+  font-size: 1.3125rem;
+  line-height: 1.8125rem;
+  text-align: center;
+  color: black;
+}
+
+
+.home-box-bottom{
+  font-size: 0.9375rem;
+    color: #8a8a8a !important;
+}
+
+.home-photo:hover{
+  transform: translateY(-25px)
+}
+
+.home-photo{
+  position: relative;
+  list-style: none;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.38, 0.76, 0.87, 0.93) 0.02s;
+}
+.home-title{
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  position: absolute;
+  top: 1.15rem;
+  left: 1.875rem;
+  font-size: 1.375rem;
+  color: #fff;
+}
+
+.home-description{
+  position: absolute;
+  bottom: 1.875rem;
+  padding: 0 1.875rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 0.9375rem;
+  color: #fff;
+  left: 0;
+}
+
+
+.home-photo:hover .home-description{
+  opacity: 1;
+}
+
+
+
+
