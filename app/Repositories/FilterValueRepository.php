@@ -9,7 +9,10 @@ class FilterValueRepository
 
   public function all($id)
   {
-    return FilterValue::whereFilterId($id)->get();
+    return FilterValue::whereFilterId($id)
+    ->orderByRaw('LENGTH(value)', 'ASC')
+    ->orderBy('value', 'ASC')
+    ->get();
   }
 
 

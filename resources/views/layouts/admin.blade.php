@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  8q!sR
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -104,8 +103,21 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
             <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
-            <a class="collapse-item" href="{{route('filter.create')}}">Create filter</a>
             <a class="collapse-item" href="{{route('product.index')}}">View All Product</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true"
+          aria-controls="collapseFilter">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Filter</span>
+        </a>
+        <div id="collapseFilter" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{{route('filter.create')}}">Create filter</a>
           </div>
         </div>
       </li>

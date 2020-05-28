@@ -5,8 +5,8 @@
 <div class="my-4">
   <div class="row">
     <div class="col-md-6">
-      <h1 class="font-weight-bold">Create Filter</h1>
-      {!! Form::model($filter,["method"=>"patch", "action"=>["FilterController@update",$filter->id]]) !!}
+      <h1 class="font-weight-bold">Edit Filter</h1>
+      {!! Form::model($filterValue,["method"=>"patch", "action"=>["FilterValueController@update",$filterValue->id]]) !!}
       <div class=" form-group pl-5">
         {!! Form::label("type", "Type:") !!}
         {!! Form::text("type", null, ["class"=>"form-control"]) !!}

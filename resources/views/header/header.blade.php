@@ -120,7 +120,7 @@
   </div>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a href="index.html" class="navbar-brand home">
+      <a href="{{ route('home') }}" class="navbar-brand home">
         <img height="80" src="{{ asset('images/index/logo.jpg') }}" alt="Obaju logo" class="d-none d-md-inline-block">
         <img height="50" src="{{ asset('images/index/logo.jpg') }}" alt="Obaju logo" class="d-inline-block d-md-none">
         <span class="sr-only">Shop in - go to homepage</span>
@@ -142,8 +142,8 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a href="#" class="nav-link active">Αρχική</a></li>
           <li class="nav-item dropdown menu-large">
-            <a href="{{ route("home.categories") }}"  data-toggle="dropdown" data-hover="dropdown"
-              data-delay="200" class="dropdown-toggle nav-link">Προϊόντα<b class="caret"></b>
+            <a href="{{ route("home.categories") }}" data-toggle="dropdown" data-hover="dropdown" data-delay="200"
+              class="dropdown-toggle nav-link">Προϊόντα<b class="caret"></b>
             </a>
             @include('header.nav-dropdown')
           </li>
