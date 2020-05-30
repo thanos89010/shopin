@@ -14,6 +14,7 @@ use Symfony\Component\Console\Helper\Helper;
 class HomeController extends Controller
 {
   protected $homeRepository;
+
   public function __construct(HomeRepository $homeRepository)
   {
     $this->homeRepository = $homeRepository;
@@ -36,7 +37,7 @@ class HomeController extends Controller
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->filterPrice($id);
-    // dd($products);
+
     return view("category", compact("categoriesMenu", "categories", "products"));
   }
   public function filterRam($id = null)
@@ -44,8 +45,7 @@ class HomeController extends Controller
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->filterRam($id);
-    // dd($products);
-    // dd($products);
+
     return view("category", compact("categoriesMenu", "categories", "products"));
   }
   public function show($id)
@@ -60,6 +60,12 @@ class HomeController extends Controller
      return view("product" , compact("categoriesMenu","categories","product","mightAlsoLike"));
 
 
+  }
+
+  public function newslatter(Request $request)
+  {
+    $this->homeRepository->createNewslatter($request->all());
+    return redirect()->back();
   }
 
 

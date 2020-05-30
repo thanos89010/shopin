@@ -86,12 +86,12 @@
                                 <div class="flipper">
                                     <div class="front">
                                         <a href="detail.html">
-                                            <img height="80" src="{{ $product->image->url }}" alt="" class="img-fluid">
+                                            <img src="{{ $product->image->url }}" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="back">
                                         <a href="detail.html">
-                                            <img height="80" src="{{ $product->image->url }}" alt="" class="img-fluid">
+                                            <img src="{{ $product->image->url }}" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                 </div>
@@ -111,11 +111,11 @@
                             </div>
                             <!-- /.text-->
                             <div class="ribbon sale">
-                                <div class="theribbon">SALE</div>
+                                <div class="theribbon">NEW</div>
                                 <div class="ribbon-background"></div>
                             </div>
                             <!-- /.ribbon-->
-                            <div class="ribbon new">
+                            {{-- <div class="ribbon new">
                                 <div class="theribbon">NEW</div>
                                 <div class="ribbon-background"></div>
                             </div>
@@ -123,7 +123,7 @@
                             <div class="ribbon gift">
                                 <div class="theribbon">GIFT</div>
                                 <div class="ribbon-background"></div>
-                            </div>
+                            </div> --}}
                             <!-- /.ribbon-->
                         </div>
                         <!-- /.product-->
@@ -406,15 +406,18 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="content">
-                                                <form>
-                                                    <h2>Δεν θες να χάνεις ευκαιρία;</h2>
-                                                    <div class="input-group">
-                                                        <input type="email" class="form-control"
-                                                            placeholder="Βάλε το e-mail σου εδώ">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn" type="submit">Εγγραφή</button>
-                                                        </span>
-                                                    </div>
+                                                {!! Form::open(["method"=>"post","action"=>"HomeController@newslatter"])
+                                                !!}
+                                                <h2>Δεν θες να χάνεις ευκαιρία;</h2>
+                                                <div class="input-group">
+                                                    {!! Form::email("email", null,
+                                                    ["class"=>"form-control","placeholder"=>"Βάλε το e-mail σου εδώ"])
+                                                    !!}
+
+                                                    <span class="input-group-btn">
+                                                        <button class="btn" type="submit">Εγγραφή</button>
+                                                    </span>
+                                                </div>
                                                 </form>
                                             </div>
                                         </div>

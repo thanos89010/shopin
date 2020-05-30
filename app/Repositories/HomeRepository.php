@@ -6,6 +6,7 @@ use App\Filter;
 use App\Product;
 use App\Category;
 use App\FilterValue;
+use App\Newslatter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class HomeRepository
@@ -85,5 +86,11 @@ public function mightAlsoLike($id)
  {
    return product::whereId($productId)
     ->first();
+ }
+
+ public function createNewslatter($request)
+ {
+
+   Newslatter::create($request);
  }
 }
