@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Product;
 use App\Category;
+use App\ProductFilter;
 use Illuminate\Http\Request;
 
 class ProductRepository
@@ -18,7 +19,6 @@ class ProductRepository
 
   public function create(Request $request)
   {
-
     $product = new Product();
 
     $data = collect($request)->except("url")->all();
@@ -69,6 +69,23 @@ class ProductRepository
   public function showProduct()
   {
     return Category::pluck("name","id")->all();
+  }
+
+  public function storeAssign($request)
+  {
+   
+  
+    // ProductFilter::create([
+    //   "product_id"=>$request->product_id,
+    //   "filter_value_id"=>$request->filter_value_id
+    // ]);
+    if(!ProductFilter::whereProductId($request['product_id'])->whereFilterValueId($request['filter_value_id'])->first()){
+      ProductFilter::create($request);
+    }else{
+      dd('allready assigned');
+
+    }
+
   }
 
   

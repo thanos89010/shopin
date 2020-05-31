@@ -10,7 +10,6 @@
         {!! Form::open(["method"=>"post", "action"=>"RoleController@store"]) !!}
         {!! Form::label("name", "Name:") !!}
         {!! Form::text("name", null, ["class"=>"form-control"]) !!}
-
       </div>
       <div class="form-group pl-5">
         {!! Form::submit("Create Role", ["class"=>"btn btn-primary"]) !!}

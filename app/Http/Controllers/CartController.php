@@ -19,10 +19,15 @@ class CartController extends Controller
 
   public function index()
   {
+
+  
+    $shipping = $this->cartRepository->showShipping();
     $categoriesMenu = $this->cartRepository->showMenu();
     $categories = $this->cartRepository->showCategory();
     $products = $this->cartRepository->showProduct();
-    return view("cart.index", compact("categories", "products","categoriesMenu"));
+    $mightAlsoLike = $this->cartRepository->mightAlsoLike();
+    
+    return view("cart.index", compact("categories", "products","categoriesMenu","mightAlsoLike" ,"shipping"));
   }
 
   public function store(Request $request)

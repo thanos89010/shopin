@@ -30,8 +30,7 @@
           <div class="col-md-6">
             <div class="box">
               <h1 class="text-center">{{ $product->name}}</h1>
-              <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material
-                  &amp; care and sizing</a></p>
+              <p class="goToDescription"><a href="#details" class="scroll-to">Μεταβείτε στα χαρακτηριστικά</a></p>
               <p class="price">{{ $product->price}}</p>
               <p class="text-center buttons"><a href="basket.html" class="btn btn-primary"><i
                     class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket.html"
@@ -69,15 +68,8 @@
                   class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></p>
           </div>
         </div>
-        <div class="row same-height-row">
-          <div class="col-md-3 col-sm-6">
-            <div class="box same-height">
-              <h3>You may also like these products</h3>
-            </div>
-          </div>
-          @include('partial.mightalso')
-        </div>
-        <div class="row same-height-row">
+        @include('partial.mightalso')
+        {{-- <div class="row same-height-row">
           <div class="col-md-3 col-sm-6">
             <div class="box same-height">
               <h3>Products viewed recently</h3>
@@ -134,7 +126,7 @@
             </div>
             <!-- /.product-->
           </div>
-        </div>
+        </div> --}}
       </div>
       <!-- /.col-md-9-->
     </div>

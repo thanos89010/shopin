@@ -25,7 +25,14 @@ class CheckoutRepository
     // dd($test->slug);
     return Category::all();
   }
-
+  public function showShipping()
+  {
+    $shipping = 0 ;
+    foreach(\Cart::getContent() as $product ){
+      $shipping += $product->attributes->shipping_cost *$product->quantity;
+    }
+    return $shipping ;
+  }
 
 
   public function create($request)

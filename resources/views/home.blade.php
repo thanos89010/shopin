@@ -99,7 +99,7 @@
                             <a href="detail.html" class="invisible">
                                 <img src="{{ $product->image->url }}" alt="" class="img-fluid">
                             </a>
-                            <div class="text">
+                            <div class="text d-flex justify-content-center  align-items-center flex-wrap flex-column">
                                 <h3>
                                     <a href="{{ route('home.show',$product->id) }}">{{ $product->name }} </a>
                                 </h3>
@@ -107,7 +107,14 @@
                                     <del>
                                     </del>${{ $product->price }}
                                 </p>
-                                @include('cart.add-product')
+
+                                <p class="buttons"><a href="{{ route('home.show',$product->id) }}"
+                                        class="btn btn-outline-secondary">Ριξε μια ματια</a>
+                                    @if (\Auth::check())
+                                    @include('cart.partial.add-product')
+                                    @endif
+                                </p>
+
                             </div>
                             <!-- /.text-->
                             <div class="ribbon sale">

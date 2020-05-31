@@ -25,9 +25,19 @@ class CartRepository
     return Category::all();
   }
 
-
-  public function all()
+  public function showShipping()
   {
+    $shipping = 0 ;
+    foreach(\Cart::getContent() as $product ){
+      $shipping += $product->attributes->shipping_cost *$product->quantity;
+    }
+    return $shipping ;
+  }
+
+
+  public function mightAlsoLike()
+  {
+    return   Product::all(); 
   }
 
   public function add($request)
@@ -41,7 +51,7 @@ class CartRepository
         'image' => $request->img,
         'details' => $request->details,
         'description' => $request->description,
-        'shpping_cost' => $request->shpping_cost,
+        'shipping_cost' => $request->shipping_cost,
         'discount_price' => $request->discount_price
       ]
     ]);

@@ -17,8 +17,6 @@
 * home 
 *---------------------------------
 **/
-
-
 .home-box a{
   font-weight: 500;
   margin: 0 0 1.25rem;
@@ -102,5 +100,21 @@
   font-weight:600;
   }
 
+/**
+*---------------------------------
+* filter
+*---------------------------------
+**/
+.filter-title {
+  position: relative;
+  font-weight: normal;
+  text-transform: none !important;
+  display: block;
+  padding: 10px 15px;
+  padding-left: 30px;
+  font-size: 0.738rem;
+  color: #555;
+  font-weight: bold;
+}
 
 

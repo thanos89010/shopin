@@ -16,10 +16,11 @@ class CheckoutController extends Controller
 
   public function index()
   {
+    $shipping = $this->checkoutRepository->showShipping();
     $categoriesMenu = $this->checkoutRepository->showMenu();
     $categories = $this->checkoutRepository->showCategory();
     $products = $this->checkoutRepository->showProduct();
-    return view("cart.checkout.index",compact("categories","products","categoriesMenu"));
+    return view("cart.checkout.index",compact("categories","products","categoriesMenu","shipping"));
 
   }
 
@@ -41,7 +42,7 @@ class CheckoutController extends Controller
   {
     $categories = $this->checkoutRepository->showCategory();
     $products = $this->checkoutRepository->showProduct();
-    return view("includes.thx-order",compact("categories","products"));
+    return view("partial.thx-order",compact("categories","products"));
   }
 
     

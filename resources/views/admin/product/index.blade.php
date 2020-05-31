@@ -16,6 +16,7 @@
           <th>Shipping Cost</th>
           <th>Quantity</th>
           <th>Status</th>
+          <th>Filter</th>
           <th>View Product</th>
           <th>Edit Product</th>
           <th>Delete Product</th>
@@ -37,6 +38,9 @@
           <td> <span class="product">{{$product->shipping_cost}}</span> </td>
           <td> <span class="product">{{$product->quantity}}</span> </td>
           <td> <span class="product">{{$product->product_status}}</span> </td>
+          <td>
+            <a class="btn btn-success" href="{{route('product.assign',$product->id)}}" class="nav-link">Assign</a>
+          </td>
           <td>
             <a class="btn btn-primary" href="{{route('product.show',$product->id)}}" class="nav-link">Show</a>
           </td>

@@ -7,14 +7,15 @@
   <div id="top">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the day</a><a
-            href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
+        <div class="col-lg-6 offer mb-3 mb-lg-0">
+          <h4 href="#" class="ml-1">Η σελιδα εχει δημιουργηθει καθαρα για εκπαιδευτικους σκοπους</η3>
+        </div>
         <div class="col-lg-6 text-center text-lg-right">
           <ul class="menu list-inline mb-0">
             @guest
-            <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+            <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Σύνδεση</a></li>
             @if (Route::has('register'))
-            <li class="list-inline-item"><a href="{{ route('register') }}">Register</a></li>
+            <li class="list-inline-item"><a href="{{ route('register') }}">Εγγραφή </a></li>
             @endif
             @else
             <li class="list-inline-item">
@@ -33,8 +34,8 @@
               </div>
             </li>
             @endguest
-            <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-            <li class="list-inline-item"><a href="#">Recently viewed</a></li>
+            <li class="list-inline-item"><a href="contact.html">Επικοινωνία</a></li>
+            <li class="list-inline-item"><a href="#">Σχετικα με εμας </a></li>
           </ul>
           {{-- <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -76,7 +77,7 @@
           @csrf
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Customer login</h5>
+              <h5 class="modal-title">Φορμα Συνδεσης</h5>
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
                   aria-hidden="true">×</span></button>
             </div>
@@ -102,13 +103,13 @@
               </div>
               <p class="text-center">
                 <button type="submit" class="btn btn-primary">
-                  {{ __('Login') }}
+                  {{ __('Συνδεση') }}
                 </button>
               </p>
-              <p class="text-center text-muted">Not registered yet?</p>
-              <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy
-                and
-                done in 1 minute and gives you access to special discounts and much more!</p>
+              <p class="text-center text-muted">Δεν ειστε γραμμενος?</p>
+              <p class="text-center text-muted"><a href="register.html"><strong>Εγγραφη Τωρα </strong></a>
+                <p class="text-center">Γράψου και δε θα χάσεις!</p>
+              </p>
             </div>
           </div>
         </form>
@@ -118,7 +119,7 @@
 
 
   </div>
-  <nav class="navbar navbar-expand-lg">
+  <nav class=" navbar navbar-expand-lg navbar-sticky-top">
     <div class="container">
       <a href="{{ route('home') }}" class="navbar-brand home">
         <img height="80" src="{{ asset('images/index/logo.jpg') }}" alt="Obaju logo" class="d-none d-md-inline-block">
@@ -153,10 +154,13 @@
           <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search"
             class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i
               class="fa fa-search"></i></a>
+          @if (!\Cart::isEmpty())
           <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a
               href="{{ route('cart.index') }}" class="btn btn-primary navbar-btn"><i
-                class="fa fa-shopping-cart"></i><span>{{ Cart::getTotalQuantity()}} items in cart</span></a>
+                class="fa fa-shopping-cart"></i><span>{{ Cart::getTotalQuantity()}} Προιοντα στο καλαθι</span></a>
           </div>
+          @endif
+
         </div>
       </div>
     </div>

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\User;
+use App\Filter;
 use App\Product;
+use App\Category;
+use App\FilterValue;
+use App\ProductFilter;
 use Illuminate\Http\Request;
 use App\Repositories\ProductRepository;
-use App\User;
 
 class ProductController extends Controller
 {
@@ -17,11 +20,26 @@ class ProductController extends Controller
     $this->productRepository = $productRepository;
   }
 
+  public function assign(Product $product , $productId)
+  {
+   
+   $filters =  Filter::pluck("type","id")->all();
+   $filtersValue =  FilterValue::pluck("value","id")->all();
+   $product = $this->productRepository->findById($productId);
+    return view("admin.product.assign",compact("filters","filtersValue","product"));
+  }
 
+  public function assignStore(Request $request)
+  {
+    $valueProduct = $this->productRepository->storeAssign($request->all());
+   
+    return redirect()->back();
+  }
 
 
   public function index()
   {
+    
     $products  = $this->productRepository->all();
     return view("admin.product.index", compact("products"));
   }

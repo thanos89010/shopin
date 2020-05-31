@@ -11,6 +11,10 @@ class Product extends Model
   
     protected $guarded = [];
     
+    public function getPriceAttribute($value)
+    {
+        return $value."€";
+    }
     
     public function image()
     {

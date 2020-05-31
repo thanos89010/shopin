@@ -8,9 +8,9 @@
 {!! Form::hidden("shipping_cost", $product->shipping_cost ) !!}
 {!! Form::hidden("quantity", 1 )!!}
 
-<button class="d-flex align-items-center btn btn-primary">
+<button class="d-flex align-items-center btn btn-primary text-center">
   <i class="fa fa-shopping-cart mr-2"></i>
-  <span>add to cart</span>
+  <span>Προσθηκη</span>
 </button>
 
 {!! Form::close() !!}

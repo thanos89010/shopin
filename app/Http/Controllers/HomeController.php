@@ -8,6 +8,7 @@ use App\FilterValue;
 use app\Helpers\showsHelper;
 use Illuminate\Http\Request;
 use App\Repositories\HomeRepository;
+use Illuminate\Support\Facades\Auth;
 use Spatie\QueryBuilder\QueryBuilder;
 use Symfony\Component\Console\Helper\Helper;
 
@@ -21,6 +22,8 @@ class HomeController extends Controller
   }
   public function index()
   {
+
+    
     $categoriesMenu = $this->homeRepository->showMenu();
     $products = $this->homeRepository->showProduct();
     return view("home", compact("categoriesMenu", "products"));

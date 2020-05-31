@@ -22,15 +22,15 @@
                 <thead>
                   <tr>
                     @if (\Agent::isDesktop())
-                    <th>Product</th>
+                    <th>Προιοντα</th>
                     @endif
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Unit price</th>
+                    <th>Ονομα</th>
+                    <th>Ποσοτητα</th>
+                    <th>Τιμη</th>
                     @if (\Agent::isDesktop())
-                    <th>Discount</th>
+                    <th>Εκπτωση</th>
                     @endif
-                    <th>Total</th>
+                    <th>Συνολικο</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
                     <td>
                       {!! Form::number("quantity", $product->quantity, ["class"=>"form-control"]) !!}
                     </td>
-                    <td>${{ $product->price }}</td>
+                    <td>{{ $product->price }}</td>
                     @if (\Agent::isDesktop())
                     <td>{{ $product->discount }}</td>
                     @endif
@@ -62,12 +62,12 @@
                 <tfoot>
                   <tr>
                     @if (\Agent::isDesktop())
-                    <th colspan="5">Total</th>
+                    <th colspan="5">Συνολο</th>
                     @endif
                     @if (\Agent::isMobile())
-                    <th>Total</th>
+                    <th>Συνολο</th>
                     @endif
-                    <th colspan="2">${{ Cart::getTotal()}}</th>
+                    <th colspan="2">{{ Cart::getTotal()}}</th>
                   </tr>
                 </tfoot>
               </table>
@@ -75,44 +75,21 @@
             <!-- /.table-responsive-->
             <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
               <div class="left"><a href="category.html" class="btn btn-outline-secondary"><i
-                    class="fa fa-chevron-left"></i> Continue shopping</a></div>
+                    class="fa fa-chevron-left"></i>Συνεχιστε τις αγορες</a></div>
               <div class="right d-flex">
                 {!! Form::open(["method"=>"post","action"=>"CartController@clear",\Cart::getContent()]) !!}
-                <button class="btn btn-outline-secondary mr-2"><i class="fa fa-refresh"></i> clear cart</button>
+                <button class="btn btn-outline-secondary mr-2"><i class="fa fa-refresh"></i>Αδειασμα Καλαθιου</button>
                 {!! Form::close() !!}
-                <a href="{{ route('checkout.index') }}" type="submit" class="btn btn-primary">Proceed to checkout <i
-                    class="fa fa-chevron-right"></i></a>
+                <a href="{{ route('checkout.index') }}" type="submit" class="btn btn-primary">Προχωρήσετε στα στοιχεια
+                  <i class="fa fa-chevron-right"></i></a>
               </div>
             </div>
           </div>
           <!-- /.box-->
-          <div class="row same-height-row">
-            <div class="col-lg-3 col-md-6">
-              <div class="box same-height">
-                <h3>You may also like these products</h3>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="product same-height">
-                <div class="flip-container">
-                  <div class="flipper">
-                    <div class="front"><a href="detail.html"><img src="" alt="" class="img-fluid"></a>
-                    </div>
-                    <div class="back"><a href="detail.html"><img src="" alt="" class="img-fluid"></a>
-                    </div>
-                  </div>
-                </div><a href="detail.html" class="invisible"><img src="" alt="" class="img-fluid"></a>
-                <div class="text">
-                  <h3>Fur coat</h3>
-                  <p class="price">$143</p>
-                </div>
-              </div>
-              <!-- /.product-->
-            </div>
-          </div>
+          @include('partial.mightalso')
         </div>
         <!-- /.col-lg-9-->
-        @include('cart.summary-coupon')
+        @include('cart.partial.summary-coupon')
         <!-- /.col-md-3-->
       </div>
     </div>

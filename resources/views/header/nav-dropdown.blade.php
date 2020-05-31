@@ -4,12 +4,12 @@
       @foreach ($categoriesMenu as $category)
       <div class="col-md-6 col-lg-3">
         @if (!$category->parent_id)
-         <h5>  <a href="{{ route('home.categories',$category->id) }}">{{ $category->name }}</a></h5>
+        <h5> <a href="{{ route('home.categories',$category->id) }}">{{ $category->name }}</a></h5>
         @endif
         <ul class="list-unstyled mb-3">
           @foreach ($category->children as $children)
-          <li class="nav-item"><a href="{{ route('home.categories' ,$children->id) }}" 
-          class="nav-link">{{ $children->name }}</a></li>
+          <li class="nav-item"><a href="{{ route('home.categories' ,$children->id) }}"
+              class="nav-link">{{ $children->name }}</a></li>
           @endforeach
         </ul>
       </div>

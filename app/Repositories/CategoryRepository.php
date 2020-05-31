@@ -46,4 +46,7 @@ class CategoryRepository
     return Category::pluck("name","id")->all();
     
   }
+
+  
+
 }

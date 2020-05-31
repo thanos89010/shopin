@@ -1,27 +1,28 @@
 <div class="col-lg-3">
   <div id="order-summary" class="box">
     <div class="box-header">
-      <h3 class="mb-0">Order summary</h3>
+      <h3 class="mb-0">Συνολο Παραγγελίας</h3>
     </div>
-    <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+    <p class="text-muted">Τα έξοδα αποστολής και τα επιπλέον έξοδα υπολογίζονται με βάση τις τιμές που έχετε εισαγάγει.
+    </p>
     <div class="table-responsive">
       <table class="table">
         <tbody>
           <tr>
-            <td>Order subtotal</td>
-            <th>${{ Cart::getTotal()}}</th>
+            <td>Υποσυνολο</td>
+            <th>{{ Cart::getTotal()}}</th>
           </tr>
           <tr>
-            <td>Shipping and handling</td>
-            <th>$10.00</th>
+            <td>Μεταφορικα</td>
+            <th>{{ $shipping }}</th>
           </tr>
           {{-- <tr>
             <td>Tax</td>
             <th>$0.00</th>
           </tr> --}}
           <tr class="total">
-            <td>Total</td>
-            <th>$456.00</th>
+            <td>Συνολο</td>
+            <th>{{ Cart::getTotal()+$shipping }}</th>
           </tr>
         </tbody>
       </table>
@@ -29,9 +30,9 @@
   </div>
   <div class="box">
     <div class="box-header">
-      <h4 class="mb-0">Coupon code</h4>
+      <h4 class="mb-0">Κουπονι Κωδικος</h4>
     </div>
-    <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
+    <p class="text-muted">Εάν διαθέτετε κωδικό κουπονιού, εισαγάγετέ τον στο παρακάτω πλαίσιο.</p>
     <form>
       <div class="input-group">
         <input type="text" class="form-control"><span class="input-group-append">

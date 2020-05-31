@@ -12,7 +12,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 class HomeRepository
 {
 
-public function mightAlsoLike($id)
+public function mightAlsoLike($id = null)
 {
   return   Product::where("id","!=",$id)->inRandomOrder()->take(3)->get();
 }
