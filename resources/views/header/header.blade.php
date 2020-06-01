@@ -5,17 +5,18 @@
   _________________________________________________________
   -->
   <div id="top">
-    <div class="container">
+    <div class="container ">
       <div class="row">
         <div class="col-lg-7 offer mb-3 mb-lg-0">
           <h5 href="#" class="ml-1">Η σελιδα εχει δημιουργηθει καθαρα για εκπαιδευτικους σκοπους</η3>
             <p class="mt-1">Για περισσοτερες πληροφοριες για την λειτουργία του site μπειτε
-              <a href="https://github.com/thanos89010/shopin"><strong>εδω</strong> </a>
-              και διαβαστε το readme.
+              <u class="text-danger"> <a class="text-danger"
+                  href="https://github.com/thanos89010/shopin"><strong>εδω</strong> </a>
+                και διαβαστε το readme. </u>
             </p>
         </div>
-        <div class="col-lg-5 text-center text-lg-right">
-          <ul class="menu list-inline mb-0">
+        <div class="col-lg-5 text-center text-lg-right mt-2 ">
+          <ul class="menu list-inline mb-0 ">
             @guest
             <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Σύνδεση</a></li>
             @if (Route::has('register'))
