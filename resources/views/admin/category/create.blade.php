@@ -12,7 +12,7 @@
         {!! Form::text("name", null, ["class"=>"form-control"]) !!}
       </div>
       <div class="form-group pl-5">
-        {!! Form::label("body", "Body:",) !!}
+        {!! Form::label("body", "Body:") !!}
         {!! Form::textarea("body", null, ["class"=>"form-control","rows"=>4]) !!}
       </div>
       <div class="form-group pl-5">

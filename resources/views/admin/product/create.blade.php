@@ -6,23 +6,23 @@
 {!! Form::open(["method"=>"POST","action"=>"ProductController@store","files"=>true]) !!}
 {!! Form::hidden("parent_id") !!}
 <div class="form-group">
-  {!! Form::label("name", "Name:", ) !!}
+  {!! Form::label("name", "Name:") !!}
   {!! Form::text("name", null, ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
-  {!! Form::label("details", "Details:", ) !!}
+  {!! Form::label("details", "Details:") !!}
   {!! Form::text("details", null, ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
-  {!! Form::label("price", "Price:", ) !!}
+  {!! Form::label("price", "Price:") !!}
   {!! Form::number("price", null, ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
-  {!! Form::label("shipping_cost", "Shipping:" ) !!}
+  {!! Form::label("shipping_cost", "Shipping:") !!}
   {!! Form::number("shipping_cost", null, ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
-  {!! Form::label("quantity", "Quantity:", ) !!}
+  {!! Form::label("quantity", "Quantity:") !!}
   {!! Form::number("quantity", null, ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
@@ -34,7 +34,7 @@
   {!! Form::file("url", ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">
-  {!! Form::label("description", "Description:", ) !!}
+  {!! Form::label("description", "Description:") !!}
   {!! Form::textarea("description", null, ["class"=>"form-control","rows"=>4]) !!}
 </div>
 <div class="form-group">
