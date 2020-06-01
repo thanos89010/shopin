@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer("quantity");
             $table->unsignedInteger("product_status")->default(1);
             $table->unsignedInteger("category_id");
-            $table->Integer("parent_id");
+            $table->Integer("parent_id")->nullable();
             $table->timestamps();
 
 

@@ -4,6 +4,7 @@
 
 <h1 class="font-weight-bold">Create Products</h1>
 {!! Form::open(["method"=>"POST","action"=>"ProductController@store","files"=>true]) !!}
+{!! Form::hidden("parent_id") !!}
 <div class="form-group">
   {!! Form::label("name", "Name:", ) !!}
   {!! Form::text("name", null, ["class"=>"form-control"]) !!}

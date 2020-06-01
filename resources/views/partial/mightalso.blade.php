@@ -10,12 +10,15 @@
     <div class="product same-height d-flex flex-column align-items-center ">
       <div class="flip-container">
         <div class="flipper ">
-          <div class="front"><a href="detail.html"><img src="{{ $product->image->url }}" alt="" class="img-fluid"></a>
+          <div class="front"><a href="{{ route('home.show',$product->id) }}"><img src="{{ $product->image->url }}"
+                alt="" class="img-fluid"></a>
           </div>
-          <div class="back"><a href="detail.html"><img src="{{ $product->image->url }}" alt="" class="img-fluid"></a>
+          <div class="back"><a href="{{ route('home.show',$product->id) }}"><img src="{{ $product->image->url }}" alt=""
+                class="img-fluid"></a>
           </div>
         </div>
-      </div><a href="detail.html" class="invisible"><img src="{{ $product->image->url }}" alt="" class="img-fluid"></a>
+      </div><a href="{{ route('home.show',$product->id) }}" class="invisible"><img src="{{ $product->image->url }}"
+          alt="" class="img-fluid"></a>
       <div class="text">
         <h3>{{ $product->name }}</h3>
         <p class="price">{{ $product->price }}</p>

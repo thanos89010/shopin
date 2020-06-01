@@ -19,7 +19,7 @@
                 {{-- @php
                 dd(count($category->children) )
                 @endphp --}}
-                <span class="badge badge-secondary">42</span></a></li>
+                <span class="badge badge-secondary"></span></a></li>
           </ul>
           @endforeach
         </li>

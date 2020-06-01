@@ -85,18 +85,18 @@
                             <div class="flip-container">
                                 <div class="flipper">
                                     <div class="front">
-                                        <a href="detail.html">
+                                        <a href="{{ route('home.show',$product->id) }}">
                                             <img src="{{ $product->image->url }}" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="back">
-                                        <a href="detail.html">
+                                        <a href="{{ route('home.show',$product->id) }}">
                                             <img src="{{ $product->image->url }}" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <a href="detail.html" class="invisible">
+                            <a href="{{ route('home.show',$product->id) }}" class="invisible">
                                 <img src="{{ $product->image->url }}" alt="" class="img-fluid">
                             </a>
                             <div class="text d-flex justify-content-center  align-items-center flex-wrap flex-column">
@@ -110,9 +110,9 @@
 
                                 <p class="buttons"><a href="{{ route('home.show',$product->id) }}"
                                         class="btn btn-outline-secondary">Ριξε μια ματια</a>
-                                    @if (\Auth::check())
+
                                     @include('cart.partial.add-product')
-                                    @endif
+
                                 </p>
 
                             </div>

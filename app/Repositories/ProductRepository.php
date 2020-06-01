@@ -26,7 +26,14 @@ class ProductRepository
 
     $product->create($data);
 
+
     $productPhoto = $this->findById(Product::latest()->first()->id);
+    $product = Product::whereId($productPhoto->id)->first();
+    $product['parent_id']=$productPhoto->category->parent_id;
+    $product->save();
+    
+    
+    // $request->parent_id->upd$productPhoto->category->parent_id  ;
 
     if (request()->url) {
       $file = request()->url;

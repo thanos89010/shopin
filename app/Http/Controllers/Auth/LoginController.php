@@ -42,8 +42,8 @@ class LoginController extends Controller
     public function showLoginForm()
     {
 
-        $categories =  Category::all();
-        return view("auth.login",compact("categories"));
+        $categoriesMenu =  Category::all();
+        return view("auth.login",compact("categoriesMenu"));
     }
 
    

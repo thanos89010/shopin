@@ -57,25 +57,23 @@
               <div class="product ">
                 <div class="flip-container">
                   <div class="flipper">
-                    <div class="front"><a href="detail.html"><img src="{{ $product->image->url }}" alt=""
-                          class="img-fluid"></a></div>
-                    <div class="back"><a href="detail.html"><img src="{{ $product->image->url }}" alt=""
-                          class="img-fluid"></a></div>
+                    <div class="front"><a href="{{ route('home.show',$product->id) }}"><img
+                          src="{{ $product->image->url }}" alt="" class="img-fluid"></a></div>
+                    <div class="back"><a href="{{ route('home.show',$product->id) }}"><img
+                          src="{{ $product->image->url }}" alt="" class="img-fluid"></a></div>
                   </div>
-                </div><a href="detail.html" class="invisible"><img src="{{ $product->image->url }}" alt=""
-                    class="img-fluid"></a>
+                </div><a href="{{ route('home.show',$product->id) }}" class="invisible"><img
+                    src="{{ $product->image->url }}" alt="" class="img-fluid"></a>
                 <div class="text d-flex flex-column align-items-center ">
                   <h3>{{ $product->name }}</h3>
-                  <h3><a href="detail.html">{{ $product->details }} </a></h3>
+                  <h3>{{ $product->details }} </h3>
                   <p class="price">
                     <del></del>${{ $product->price }}
                   </p>
 
                   <p class="buttons"><a href="{{ route('home.show',$product->id) }}"
                       class="btn btn-outline-secondary">Ριξε μια ματια</a>
-                    @if (\Auth::check())
                     @include('cart.partial.add-product')
-                    @endif
                   </p>
                 </div>
                 <!-- /.text-->
@@ -86,7 +84,7 @@
             @endif
             <!-- /.products-->
           </div>
-          <div class="pages">
+          {{-- <div class="pages">
             <p class="loadMore"><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i>Εμφανισε
                 Περισσοτερα</a></p>
             <nav aria-label="Page navigation example" class="d-flex justify-content-center">
@@ -102,7 +100,7 @@
                       aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
               </ul>
             </nav>
-          </div>
+          </div> --}}
         </div>
         <!-- /.col-lg-9-->
       </div>

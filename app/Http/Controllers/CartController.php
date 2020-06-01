@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\CartRepository;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -33,6 +34,10 @@ class CartController extends Controller
   public function store(Request $request)
   {
 
+    if(!Auth::check()){
+      return redirect(route('login'));
+    }
+    
     $this->cartRepository->add($request);
     return redirect()->back();
   }

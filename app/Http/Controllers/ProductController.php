@@ -25,6 +25,7 @@ class ProductController extends Controller
    
    $filters =  Filter::pluck("type","id")->all();
    $filtersValue =  FilterValue::pluck("value","id")->all();
+   
    $product = $this->productRepository->findById($productId);
     return view("admin.product.assign",compact("filters","filtersValue","product"));
   }
