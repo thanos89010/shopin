@@ -4,6 +4,6 @@
 
 # Προσβαση στο Admin panel 
 # Κανετε  login με τα στοιχεια  
-# username thanos@gmail.com
-# password thanos
+# username : thanos@gmail.com
+# password : thanos
 # και μετα μπαινετε εδω  https://developerthis.com/admin
