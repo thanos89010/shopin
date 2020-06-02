@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
   
     protected $guarded = [];
     
     public function getPriceAttribute($value)
     {
-        return $value."€";
+        // return $value."€";
+        return  (int)$value;
+        
     }
 
     public function getDescriptionAttribute($value)
@@ -24,6 +27,8 @@ class Product extends Model
             return $value;
         }
     }
+
+   
     
     public function image()
     {

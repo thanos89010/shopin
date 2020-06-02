@@ -40,7 +40,7 @@ class CheckoutController extends Controller
 
     public function done()
   {
-    $categories = $this->checkoutRepository->showCategory();
+    $categories= $this->checkoutRepository->showCategory();
     $products = $this->checkoutRepository->showProduct();
     return view("partial.thx-order",compact("categories","products"));
   }

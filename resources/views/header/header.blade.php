@@ -39,7 +39,7 @@
               </div>
             </li>
             @endguest
-            <li class="list-inline-item"><a href="contact.html">Επικοινωνία</a></li>
+            <li class="list-inline-item"><a href="{{ route('home.contact') }}">Επικοινωνία</a></li>
             <li class="list-inline-item"><a href="#">Σχετικα με εμας </a></li>
           </ul>
           {{-- <ul class="navbar-nav ml-auto">
@@ -172,13 +172,14 @@
   </nav>
   <div id="search" class="collapse">
     <div class="container">
-      <form role="search" class="ml-auto">
-        <div class="input-group">
-          <input type="text" placeholder="Search" class="form-control">
-          <div class="input-group-append">
-            <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
-          </div>
+      {!! Form::open(["method"=>"get","action"=>"HomeController@search","class"=>"ml-auto"]) !!}
+      <div class="input-group">
+        <input type="text" name="q" value="{{ request()->input("q") }}" placeholder="Search" class="form-control">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
         </div>
+      </div>
+      {!! Form::close() !!}
       </form>
     </div>
   </div>

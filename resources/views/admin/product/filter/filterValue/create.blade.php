@@ -30,8 +30,9 @@
           <div class="d-flex ">
             <a class=" btn btn-info mr-2" href="{{ route('filterValue.edit',$filterValue->id) }}">Edit filter Value</a>
             {!! Form::open(["method"=>"delete","action"=>["FilterValueController@destroy",$filterValue->id]]) !!}
-            <a class="btn btn-danger" href="{{ route('filterValue.destroy',$filterValue->id) }}">Delete filter Value</a>
+            <a class="btn btn-danger" href="{{ route('filterValue.destroy',$filterValue->id) }}">Delete filter</a>
             {!! Form::close() !!}
+
           </div>
         </li>
 

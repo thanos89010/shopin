@@ -10,12 +10,14 @@
           <th class="serial">#</th>
           <th class="avatar">Photo</th>
           <th>Name</th>
+          @if (!Agent::isMobile())
           <th>Details</th>
           <th>Description</th>
           <th>Price</th>
           <th>Shipping Cost</th>
           <th>Quantity</th>
           <th>Status</th>
+          @endif
           <th>Filter</th>
           <th>View Product</th>
           <th>Edit Product</th>
@@ -32,12 +34,14 @@
             </div>
           </td>
           <td> <span class="name">{{$product->name}}</span> </td>
+          @if (!Agent::isMobile())
           <td> <span class="product">{{$product->details}}</span> </td>
           <td> <span class="product">{{$product->description}}</span> </td>
           <td> <span class="product">{{$product->price}}</span> </td>
           <td> <span class="product">{{$product->shipping_cost}}</span> </td>
           <td> <span class="product">{{$product->quantity}}</span> </td>
           <td> <span class="product">{{$product->product_status}}</span> </td>
+          @endif
           <td>
             <a class="btn btn-success" href="{{route('product.assign',$product->id)}}" class="nav-link">Assign</a>
           </td>

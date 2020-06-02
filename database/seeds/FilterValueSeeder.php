@@ -14,35 +14,39 @@ class FilterValueSeeder extends Seeder
     {
         //
         FilterValue::create([
-            "value"=>"2 GB",
+            "value"=>2,
             "filter_id"=>1
         ]);
         FilterValue::create([
-            "value"=>"4 GB",
+            "value"=>4,
             "filter_id"=>1
         ]);
         FilterValue::create([
-            "value"=>"8 GB",
+            "value"=>8,
             "filter_id"=>1
         ]);
         FilterValue::create([
-            "value"=>"12 GB",
+            "value"=>12,
             "filter_id"=>1
         ]);
         FilterValue::create([
-            "value"=>"32 GB",
+            "value"=>32,
+            "filter_id"=>1
+        ]);
+        FilterValue::create([
+            "value"=>32,
             "filter_id"=>2
         ]);
         FilterValue::create([
-            "value"=>"64 GB",
+            "value"=>64,
             "filter_id"=>2
         ]);
         FilterValue::create([
-            "value"=>"128 GB",
+            "value"=>128,
             "filter_id"=>2
         ]);
         FilterValue::create([
-            "value"=>"256 GB",
+            "value"=>256,
             "filter_id"=>2
         ]);
     }

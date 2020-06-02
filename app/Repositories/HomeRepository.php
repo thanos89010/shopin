@@ -38,7 +38,11 @@ public function mightAlsoLike($id = null)
       }
       return Product::whereParentId($id)->get();
     }
-
+    // echo url('/');
+    if(request()->url()==url('/')){
+        
+      return Product::inRandomOrder()->limit(5)->get();
+    }
 
     return Product::all();
   }

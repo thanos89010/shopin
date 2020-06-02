@@ -38,9 +38,6 @@
     <div class="card-body">
       <ul class="list-group list-group-flush ">
         @foreach (App\FilterValue::whereFilterId($filter->id)->get() as $values)
-        {{-- @php
-        dd($values);
-        @endphp --}}
         <li class="list-group-item p-2"><a class="filter-title nav-link"
             href="{{ route('home.filterRam',['include=productFilters.product',"filter[id]=$values->id"]) }}"
             type="checkbox">

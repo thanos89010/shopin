@@ -9,6 +9,11 @@ class FilterValue extends Model
     //
     protected $guarded = [];
     
+    public function getValueAttribute($value)
+    {
+            return  $value." GB";
+
+    }
     public function filter()
     {
         return $this->belongsTo(Filter::class);

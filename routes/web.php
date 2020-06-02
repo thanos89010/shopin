@@ -11,7 +11,7 @@ Route::group(['middleware' => ['admin']], function () {
     */
     Route::get('/admin', function () {
         return view('layouts.admin');
-    });
+    })->name("admin");
     /**
     * create users   
     */
@@ -57,7 +57,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post("/products/filter/value","FilterValueController@store")->name("filterValue.store");
     Route::get("/products/filter/value/{id}/edit","FilterValueController@edit")->name("filterValue.edit");
     Route::PATCH("/products/filter/value/{id}/update","FilterValueController@update")->name("filterValue.update");
-    Route::get("/products/filter/value/{id}","FilterValueController@destroy")->name("filterValue.destroy");
+    Route::get("/products/filter/value/{id}/delete","FilterValueController@destroy")->name("filterValue.destroy");
     /**
     * create filter     
     */
@@ -65,7 +65,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post("/products/filter","FilterController@store")->name("filter.store");
     Route::get("/products/filter/{id}/edit","FilterController@edit")->name("filter.edit");
     Route::PATCH("/products/filter/{id}/update","FilterController@update")->name("filter.update");
-    Route::get("/products/filter/{id}","FilterController@destroy")->name("filter.destroy");
+    Route::get("/products/filter/{id}/delete","FilterController@destroy")->name("filter.destroy");
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -88,8 +88,10 @@ Route::group(['middleware' => ['auth']], function () {
     * home page   
     */
 Route::get('/', 'HomeController@index')->name('home');
-Route::post('/newslatter', 'HomeController@newslatter')->name('home.newslatter ');
+Route::post('/newslatter', 'HomeController@newslatter')->name('home.newslatter');
+Route::get('/search', 'HomeController@search')->name('home.search');
 Route::get('/categories/filter/{id?}', 'HomeController@filterPrice')->name('home.filter');
 Route::get('/categories/filterRam', 'HomeController@filterRam')->name('home.filterRam');
 Route::get('/categories/{id?}', 'HomeController@categories')->name('home.categories');
 Route::get('/products/{id}', 'HomeController@show')->name('home.show');
+route::get('/contact',"HomeController@contact")->name("home.contact");

@@ -5,7 +5,7 @@
 <div class="my-4">
   <div class="row">
     <div class="col-md-6 ">
-      <h1 class="font-weight-bold">Create roles</h1>
+
       <div class="form-group">
         {!! Form::open(["method"=>"post","action"=>"ProductController@assignStore"]) !!}
         {!! Form::hidden("product_id", $product->id) !!}
@@ -17,7 +17,7 @@
         {!! Form::select("filter_value_id", [""=>"Choose Value"] + $filtersValue, null, ["class"=>"form-control "]) !!}
       </div>
       <div class="form-group pl-5">
-        {!! Form::submit("Create Role", ["class"=>"btn btn-primary"]) !!}
+        {!! Form::submit("Assign", ["class"=>"btn btn-primary"]) !!}
       </div>
       {!! Form::close() !!}
     </div>

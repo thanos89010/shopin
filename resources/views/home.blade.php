@@ -105,15 +105,15 @@
                                 </h3>
                                 <p class="price">
                                     <del>
-                                    </del>${{ $product->price }}
+                                    </del>{{ $product->price }}€
                                 </p>
-
                                 <p class="buttons"><a href="{{ route('home.show',$product->id) }}"
                                         class="btn btn-outline-secondary">Ριξε μια ματια</a>
 
-                                    @include('cart.partial.add-product')
+                                    {{-- @include('cart.partial.add-product') --}}
 
                                 </p>
+
 
                             </div>
                             <!-- /.text-->

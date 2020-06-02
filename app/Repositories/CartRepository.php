@@ -42,6 +42,7 @@ class CartRepository
 
   public function add($request)
   {
+  
     \Cart::add([
       'id' => $request->id,
       'name' => $request->name,

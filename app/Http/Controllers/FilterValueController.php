@@ -51,6 +51,7 @@ class FilterValueController extends Controller
 
   public function destroy($id)
   {
+
     $this->filterValueRepository->delete($id);
 
     return redirect()->back();

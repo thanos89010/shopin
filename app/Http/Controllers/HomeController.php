@@ -71,5 +71,23 @@ class HomeController extends Controller
     return redirect()->back();
   }
 
+  public function contact()
+  {
+    $categories = $this->homeRepository->showCategory();
+    $categoriesMenu = $this->homeRepository->showMenu();
+    return view("contact",compact("categoriesMenu","categories"));
+  }
+
+  public function search(Request $request)
+  {
+    $q = $request->input("q");
+    $products = Product::where("name","like","%$q%")->get();
+    $categories = $this->homeRepository->showCategory();
+    $categoriesMenu = $this->homeRepository->showMenu();
+   
+    return view("search",compact("categoriesMenu","categories","products"));
+
+  }
+
 
 }

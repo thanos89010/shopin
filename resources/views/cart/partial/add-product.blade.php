@@ -1,4 +1,5 @@
 {!! Form::open(["method"=>"post","action"=>"CartController@store" , "class"=>"d-flex"]) !!}
+
 {!! Form::hidden("id", $product->id ) !!}
 {!! Form::hidden("name", $product->name ) !!}
 {!! Form::hidden("details", $product->details ) !!}
