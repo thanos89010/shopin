@@ -2,11 +2,14 @@
 
 namespace App\Repositories;
 
+use App\Order;
 use App\Filter;
 use App\Product;
 use App\Category;
-use App\FilterValue;
+use App\OrderItem;
 use App\Newslatter;
+use App\FilterValue;
+use Illuminate\Support\Facades\Auth;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class HomeRepository
@@ -82,8 +85,6 @@ public function mightAlsoLike($id = null)
     return  $pro;
   }
 
-
-   
   }
 
  public function findById($productId)
@@ -97,4 +98,31 @@ public function mightAlsoLike($id = null)
 
    Newslatter::create($request);
  }
+
+ public function search($request)
+ {
+   $q = $request["q"];
+
+  return $products = Product::where("name","like","%$q%")->get();
+ }
+
+ public function account()
+ {
+   return Order::whereUserId(Auth::user()->id)->get();
+
+ }
+
+ public function showOrder($orderId)
+ {
+   $findOrder = OrderItem::findOrFail($orderId);
+   return $order = Order::whereId($findOrder->id)->first();
+ }
+
+ public function showOrderItem($orderId)
+ {
+    $findOrder = OrderItem::findOrFail($orderId);
+    return $ordersItem = OrderItem::whereOrderId($findOrder->id)->get();
+ }
+
+
 }

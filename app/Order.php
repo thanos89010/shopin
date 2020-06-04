@@ -10,6 +10,17 @@ class Order extends Model
 {
     //
     protected $guarded = [];
+
+    public function getTotalAttribute($value)
+    {
+        return round($value,2);
+    }
+    
+    public function getFullNameAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
+    } 
+
+ 
     
     public function user()
     {

@@ -38,6 +38,11 @@
                 </form>
               </div>
             </li>
+            <li class="list-inline-item">
+              <a id="my-account" href="{{ route('home.account') }}" role="button">
+                Ο λογαριασμος μου
+              </a>
+            </li>
             @endguest
             <li class="list-inline-item"><a href="{{ route('home.contact') }}">Επικοινωνία</a></li>
             <li class="list-inline-item"><a href="#">Σχετικα με εμας </a></li>

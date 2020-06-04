@@ -2,6 +2,15 @@
 
 @section('content')
 
+@if (!count($products))
+<div class="container">
+  <div class="row">
+    <h2 class="display-4">Δεν υπαρχουν προιοντα</h2>
+  </div>
+</div>
+
+@endif
+
 <div id="all">
   <div id="content">
     <div class="container">

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
 use App\Category;
 use App\FilterValue;
 use app\Helpers\showsHelper;
+use App\OrderItem;
 use Illuminate\Http\Request;
 use App\Repositories\HomeRepository;
 use Illuminate\Support\Facades\Auth;
@@ -80,13 +82,35 @@ class HomeController extends Controller
 
   public function search(Request $request)
   {
-    $q = $request->input("q");
-    $products = Product::where("name","like","%$q%")->get();
+    // $q = $request->input("q");
+    // $products = Product::where("name","like","%$q%")->get();
+    $products = $this->homeRepository->search($request->input());
     $categories = $this->homeRepository->showCategory();
     $categoriesMenu = $this->homeRepository->showMenu();
-   
+
+
     return view("search",compact("categoriesMenu","categories","products"));
 
+  }
+
+  public function account()
+  {
+    $orders = $this->homeRepository->account();
+    $categoriesMenu = $this->homeRepository->showMenu();
+    $categories = $this->homeRepository->showCategory();
+
+    return view("account",compact("categories","categoriesMenu","orders"));
+  }
+
+  public function order($orderId)
+  {
+    
+    $order = $this->homeRepository->showOrder($orderId);
+    $ordersItem = $this->homeRepository->showOrderItem($orderId);
+    $categoriesMenu = $this->homeRepository->showMenu();
+    $categories = $this->homeRepository->showCategory();
+
+    return view("order",compact("categories","categoriesMenu","ordersItem","order"));
   }
 
 

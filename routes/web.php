@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth']], function () {
     /**
     * home page   
     */
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/newslatter', 'HomeController@newslatter')->name('home.newslatter');
 Route::get('/search', 'HomeController@search')->name('home.search');
@@ -95,3 +96,6 @@ Route::get('/categories/filterRam', 'HomeController@filterRam')->name('home.filt
 Route::get('/categories/{id?}', 'HomeController@categories')->name('home.categories');
 Route::get('/products/{id}', 'HomeController@show')->name('home.show');
 route::get('/contact',"HomeController@contact")->name("home.contact");
+Route::get('/account',"HomeController@account")->name("home.account");
+Route::get('/order/{id}',"HomeController@order")->name("home.order");
+
