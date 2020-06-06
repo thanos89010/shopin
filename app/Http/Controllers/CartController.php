@@ -33,7 +33,7 @@ class CartController extends Controller
 
   public function store(Request $request)
   {
-
+   
     if(!Auth::check()){
       return redirect(route('login'));
     }

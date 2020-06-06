@@ -63,7 +63,9 @@ class UserRepository
   public function delete($userId)
   {
     $user = $this->findById($userId);
-    unlink(public_path()  . $user->image->url);
+    if($user->image){
+      unlink(public_path()  . $user->image->url);
+    }
     User::whereId($userId)->delete();
   }
 }

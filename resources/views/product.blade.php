@@ -31,10 +31,12 @@
             <div class="box">
               <h1 class="text-center">{{ $product->name}}</h1>
               <p class="goToDescription"><a href="#details" class="scroll-to">Μεταβείτε στα χαρακτηριστικά</a></p>
-              <p class="price">{{ $product->price}}</p>
+              <p class="price">{{ $product->price}}€ <span class="lead">({{ $product->shipping_cost }}€
+                  μεταφορικα)</span>
+              </p>
               <p class="text-center buttons">
-                <a href="" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="basket.html" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a>
+                @include('cart.partial.add-product')
+                <a href="#" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add wishlist</a>
               </p>
             </div>
             <div data-slider-id="1" class="owl-thumbs">
@@ -46,18 +48,10 @@
         </div>
         <div id="details" class="box">
           <p></p>
-          <h4>Product details</h4>
+          <h4>Χαρακτηριστικά</h4>
           <p>{{ $product->details}}</p>
-          <h4>Material &amp; care</h4>
-          <ul>
-            <li>Polyester</li>
-            <li>Machine wash</li>
-          </ul>
-          <h4>Size &amp; Fit</h4>
-          <ul>
-            <li>Regular fit</li>
-            <li>The model (height 5'8" and chest 33") is wearing a size S</li>
-          </ul>
+
+          <h4>Περιγραφη</h4>
           <blockquote>
             <p><em>{{ $product->description}}</em></p>
           </blockquote>

@@ -66,7 +66,19 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get("/products/filter/{id}/edit","FilterController@edit")->name("filter.edit");
     Route::PATCH("/products/filter/{id}/update","FilterController@update")->name("filter.update");
     Route::get("/products/filter/{id}/delete","FilterController@destroy")->name("filter.destroy");
+    /**
+    * create blog     
+    */
+    Route::get("/blog","BlogController@index")->name("blog.index");
+    Route::get("/blog/create","BlogController@create")->name("blog.create");
+    Route::post("/ublogser/create","BlogController@store")->name("blog.store");
+    Route::get("/blog/{id}","BlogController@show")->name("blog.show");
+    Route::get("/blog/{id}/edit","BlogController@edit")->name("blog.edit");
+    Route::PATCH("/blog/{id}/update","BlogController@update")->name("blog.update");
+    Route::get("/blog/{id}/delete","BlogController@destroy")->name("blog.destroy");
 });
+
+
 
 Route::group(['middleware' => ['auth']], function () {
     /**
@@ -98,4 +110,8 @@ Route::get('/products/{id}', 'HomeController@show')->name('home.show');
 route::get('/contact',"HomeController@contact")->name("home.contact");
 Route::get('/account',"HomeController@account")->name("home.account");
 Route::get('/order/{id}',"HomeController@order")->name("home.order");
+
+
+
+Route::get("/test","HomeController@test");
 

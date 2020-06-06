@@ -55,6 +55,14 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function posts(){
+
+
+        return $this->hasMany('App\Post');
+
+
+    }
+
    
     
 }

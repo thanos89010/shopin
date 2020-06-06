@@ -114,4 +114,13 @@ class HomeController extends Controller
   }
 
 
+  public function test(Request $request)
+  {
+    $key = $request["key"];
+    $products = Product::where("name", "like", "%$key%")->take(5)->get();
+
+    return view("partial.search",compact("products"));
+  }
+
+
 }

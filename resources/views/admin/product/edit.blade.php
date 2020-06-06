@@ -5,7 +5,7 @@
 <h1 class="font-weight-bold">Edit Products</h1>
 {!! Form::model($product,["method"=>"patch","action"=>["ProductController@update",$product->id],"files"=>true]) !!}
 <div class="form-group">
-  {!! Form::label("name", "Name:", ) !!}
+  {!! Form::label("name", "Name:") !!}
   {!! Form::text("name", null, ["class"=>"form-control"]) !!}
 </div>
 <div class="form-group">

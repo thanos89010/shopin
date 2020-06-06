@@ -19,14 +19,14 @@ class Product extends Model
         
     }
 
-    public function getDescriptionAttribute($value)
-    {
-        if (strlen($value) > 125){
-            return substr_replace($value, "...", 80);
-        }else{
-            return $value;
-        }
-    }
+    // public function getDescriptionAttribute($value)
+    // {
+    //     if (strlen($value) > 125){
+    //         return substr_replace($value, "...", 80);
+    //     }else{
+    //         return $value;
+    //     }
+    // }
 
    
     

@@ -34,7 +34,7 @@
     <section class="my-4">
         @yield('content')
     </section>
-    {{-- @include('footer.footer') --}}
+    @include('footer.footer')
     <script>
         @yield("script")
     </script>

@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
         Order::create([
             "user_id"=>1,
             "total"=>1499.990000,
-            "item_count"=>1,
+            "item_count"=>4,
             "first_name"=>"Θανος",
             "last_name"=>"Ταλαριδης",
             "email"=>"thanos@gmail.com",
@@ -30,7 +30,7 @@ class OrderSeeder extends Seeder
         Order::create([
             "user_id"=>2,
             "total"=>7799.950000,
-            "item_count"=>5,
+            "item_count"=>2,
             "first_name"=>"Μαρια",
             "last_name"=>"Φιλιππιδου",
             "email"=>"maria@gmail.com",

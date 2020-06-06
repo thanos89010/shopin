@@ -9,9 +9,10 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item"><a href="#">My orders</a></li>
-              <li aria-current="page" class="breadcrumb-item active">Order # 1735</li>
+              <li class="breadcrumb-item"><a href="{{ route('home') }}">Αρχικη</a></li>
+              <li aria-current="page" class="breadcrumb-item"><a href="{{ route('home.account') }}">Παραγγελία μου</a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active">Παραγγελία #{{ $order->id }}</li>
             </ol>
           </nav>
         </div>
@@ -22,11 +23,11 @@
           -->
           <div class="card sidebar-menu">
             <div class="card-header">
-              <h3 class="h4 card-title">Customer section</h3>
+              <h3 class="h4 card-title">Πληροφοριες</h3>
             </div>
             <div class="card-body">
               <ul class="nav nav-pills flex-column"><a href="{{ route('home.account') }}" class="nav-link active"><i
-                    class="fa fa-list"></i> My orders</a>
+                    class="fa fa-list"></i> Παραγγελία μου</a>
 
             </div>
           </div>
@@ -35,7 +36,7 @@
         </div>
         <div id="customer-order" class="col-lg-9">
           <div class="box">
-            <h1>Order #{{ $order->id }}</h1>
+            <h1>Παραγγελία #{{ $order->id }}</h1>
             <p class="lead">Η Παραγγελία #{{ $order->id }} εγινε
               <strong>{{ $order->created_at->format('d.m.Y') }}</strong>
               και αυτή τη στιγμή <strong> προετοιμάζεται..</strong></p>

@@ -176,16 +176,43 @@
     </div>
   </nav>
   <div id="search" class="collapse">
-    <div class="container">
-      {!! Form::open(["method"=>"get","action"=>"HomeController@search","class"=>"ml-auto"]) !!}
-      <div class="input-group">
-        <input type="text" name="q" value="{{ request()->input("q") }}" placeholder="Search" class="form-control">
-        <div class="input-group-append">
+    <div class="container d-flex">
+      {!! Form::open(["method"=>"get","action"=>"HomeController@search","class"=>"ml-auto input-form"]) !!}
+      <div class="input-group flex-column">
+        <div class="d-flex">
+          <input autocomplete="off" type="text" name="q" value="{{ request()->input("q") }}" id="Input-search"
+            placeholder="Search" class="form-control">
+
           <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+
         </div>
+        {{-- test --}}
+
+
+        <ul class="dropdown-menu" id="results"></ul>
+
+        {{-- test --}}
+
       </div>
       {!! Form::close() !!}
       </form>
     </div>
   </div>
 </header>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $("#Input-search").on("input", function() {
+				var key = $("#Input-search").val();
+				if (key) {
+					$("#results").load("/test?key="+ encodeURI(key));
+					// $("#results").load("search.php?key=" + encodeURI(key));
+					$("#search").addClass("open");
+					$("#results").addClass("open");
+				} else {
+					$("#results").html("");
+					$("#search").removeClass("open");
+					$("#results").removeClass("open");
+				}
+			});
+</script>
