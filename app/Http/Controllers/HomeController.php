@@ -114,12 +114,21 @@ class HomeController extends Controller
   }
 
 
-  public function test(Request $request)
+  public function liveSearch(Request $request)
   {
     $key = $request["key"];
     $products = Product::where("name", "like", "%$key%")->take(5)->get();
 
     return view("partial.search",compact("products"));
+  }
+
+  public function blog()
+  {
+    $categoriesMenu = $this->homeRepository->showMenu();
+    $blogs = $this->homeRepository->showBlog();
+
+    return view("blog",compact("categoriesMenu","blogs"));
+  
   }
 
 

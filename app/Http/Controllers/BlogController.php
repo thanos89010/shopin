@@ -42,4 +42,24 @@ class BlogController extends Controller
       return view("admin.blog.show",compact("blog"));
     }
 
+    public function edit($id)
+    {
+      $blog = $this->blogRepository->findById($id);
+      return view("admin.blog.edit" ,compact("blog"));
+    }
+
+    public function update(Request $request)
+    {
+        $this->blogRepository->update($request);
+
+        return redirect(route('blog.index'));
+    }
+
+    public function destroy($id)
+    {
+      $this->blogRepository->delete($id);
+
+      return redirect()->back();
+    }
+
 }

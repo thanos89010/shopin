@@ -398,7 +398,7 @@
             <div class="container">
                 <div class="col-md-12">
                     <h3 class="text-uppercase">Τι μας κάνει ξεχωριστούς</h3>
-                    <p class="lead mb-0">What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
+                    <p class="lead mb-0">What's new in the world of fashion? <a href="{{ route('home.blog') }}">Check our blog!</a>
                     </p>
                 </div>
             </div>

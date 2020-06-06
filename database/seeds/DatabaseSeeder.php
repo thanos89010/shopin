@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FilterSeeder::class);
         $this->call(FilterValueSeeder::class);
         $this->call(ProductFilterSeeder::class);
+        $this->call(BlogSeeder::class);
     }
 }

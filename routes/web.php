@@ -110,8 +110,6 @@ Route::get('/products/{id}', 'HomeController@show')->name('home.show');
 route::get('/contact',"HomeController@contact")->name("home.contact");
 Route::get('/account',"HomeController@account")->name("home.account");
 Route::get('/order/{id}',"HomeController@order")->name("home.order");
-
-
-
-Route::get("/test","HomeController@test");
+Route::get('/blogs',"HomeController@blog")->name("home.blog");
+Route::get("/test","HomeController@liveSearch");
 

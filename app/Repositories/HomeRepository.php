@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Blog;
 use App\Order;
 use App\Filter;
 use App\Product;
@@ -120,5 +121,10 @@ class HomeRepository
   {
     $findOrder = OrderItem::findOrFail($orderId);
     return $ordersItem = OrderItem::whereOrderId($findOrder->id)->get();
+  }
+
+  public function showBlog()
+  {
+    return Blog::all();
   }
 }

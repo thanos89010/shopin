@@ -12,9 +12,9 @@
           <th>Name</th>
           <th>title</th>
           <th>body</th>
-          {{-- <th>View Product</th>
+          <th>View Blog</th>
           <th>Edit Product</th>
-          <th>Delete Product</th> --}}
+          <th>Delete Product</th>
         </tr>
       </thead>
       <tbody>
@@ -28,16 +28,17 @@
           </td>
           <td> <span class="name">{{$blog->user->first_name}}</span> </td>
           <td> <span class="product">{{$blog->title}}</span> </td>
-          <td> <span class="product">{{$blog->body}}</span> </td>
-          {{-- <td>
-            <a class="btn btn-primary" href="{{route('product.show',$product->id)}}" class="nav-link">Show</a>
+          <td> <span class="product">{{strlen($blog->body)>30 ? substr($blog->body, 0, 30)."..": $blog->body }}</span>
           </td>
           <td>
-            <a class="btn btn-info" href="{{route('product.edit',$product->id)}}" class="nav-link">Edit</a>
+            <a class="btn btn-primary" href="{{route('blog.show',$blog->id)}}" class="nav-link">Show</a>
           </td>
           <td>
-            <a class="btn btn-danger" href="{{route('product.destroy',$product->id)}}" class="nav-link">Delete</a>
-          </td> --}}
+            <a class="btn btn-info" href="{{route('blog.edit',$blog->id)}}" class="nav-link">Edit</a>
+          </td>
+          <td>
+            <a class="btn btn-danger" href="{{route('blog.destroy',$blog->id)}}" class="nav-link">Delete</a>
+          </td>
         </tr>
 
         @endforeach

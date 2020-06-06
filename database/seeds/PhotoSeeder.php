@@ -66,6 +66,16 @@ class PhotoSeeder extends Seeder
             "imageable_id"=>9,
             "imageable_type"=>"App\Product"
         ]);
+        Photo::create([
+            "url"=>"1591473927header.jpg",
+            "imageable_id"=>10,
+            "imageable_type"=>"App\Blog"
+        ]);
+        Photo::create([
+            "url"=>"1591476785AMD-ARM-SoC.jpg",
+            "imageable_id"=>11,
+            "imageable_type"=>"App\Blog"
+        ]);
         
     }
 }
