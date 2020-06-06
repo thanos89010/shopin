@@ -26,10 +26,10 @@ class CheckoutController extends Controller
 
   public function show()
   {
-    $categories = $this->checkoutRepository->showCategory();
+    $categoriesMenu  = $this->checkoutRepository->showCategory();
     $products = $this->checkoutRepository->showProduct();
     
-    return view("cart.checkout.show",compact("categories","products"));
+    return view("cart.checkout.show",compact("categoriesMenu","products"));
     
   }
   public function store(Request $request)
@@ -40,9 +40,10 @@ class CheckoutController extends Controller
 
     public function done()
   {
-    $categories= $this->checkoutRepository->showCategory();
+    $categoriesMenu = $this->checkoutRepository->showCategory();
     $products = $this->checkoutRepository->showProduct();
-    return view("partial.thx-order",compact("categories","products"));
+    $this->checkoutRepository->clear();
+    return view("partial.thx-order",compact("categoriesMenu","products"));
   }
 
     

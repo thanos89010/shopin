@@ -49,7 +49,7 @@ class CartRepository
       'price' => $request->price,
       'quantity' => $request->quantity,
       'attributes' => [
-        'image' => $request->img,
+        'url' => $request->url,
         'details' => $request->details,
         'description' => $request->description,
         'shipping_cost' => $request->shipping_cost,

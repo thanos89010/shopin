@@ -34,6 +34,11 @@ class CheckoutRepository
     return $shipping ;
   }
 
+  public function clear()
+  {
+    \Cart::clear();
+  }
+
 
   public function create($request)
   {

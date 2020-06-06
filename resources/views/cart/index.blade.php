@@ -39,7 +39,9 @@
                   {!! Form::hidden("id", $product->id) !!}
                   <tr>
                     @if (\Agent::isDesktop())
-                    <td><a href="#"><img src="https://via.placeholder.com/100" alt="White Blouse Armani"></a></td>
+                    <td><img height="50"
+                        src="{{$product->attributes->url? $product->attributes->url: 'http://placehold.it/400x400'}}">
+                    </td>
                     @endif
                     <td><a href="#">{{ $product->name }}</a></td>
                     <td>
@@ -74,7 +76,7 @@
             </div>
             <!-- /.table-responsive-->
             <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
-              <div class="left"><a href="category.html" class="btn btn-outline-secondary"><i
+              <div class="left"><a href="{{ route('home.categories') }}" class="btn btn-outline-secondary"><i
                     class="fa fa-chevron-left"></i>Συνεχιστε τις αγορες</a></div>
               <div class="right d-flex">
                 {!! Form::open(["method"=>"post","action"=>"CartController@clear",\Cart::getContent()]) !!}

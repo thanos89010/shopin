@@ -2,6 +2,7 @@
 
 {!! Form::hidden("id", $product->id ) !!}
 {!! Form::hidden("name", $product->name ) !!}
+{!! Form::hidden("url", $product->image->url ) !!}
 {!! Form::hidden("details", $product->details ) !!}
 {!! Form::hidden("description", $product->description ) !!}
 {!! Form::hidden("price", $product->price ) !!}
